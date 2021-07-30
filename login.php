@@ -35,7 +35,7 @@
           <div class="col-md-5">
             <div class="card-body">
               <p class="login-card-description">Bienvenid@, por favor ingrese los datos correspondientes</p>
-              <form action="#!">
+              <form action="Controlador/loginvalidacion.php" method="POST">
                   <div class="form-group">
                     <label>Documento</label>
                     <input type="email" name="email" id="email" class="form-control" placeholder="No. de Documento" required="">
@@ -60,7 +60,7 @@
                   <input name="sesion" id="sesion" class="btn btn-block login-btn mb-4" type="submit" value="Iniciar sesi&oacute;n">
                 </form>
 
-                <a href="#!" class="forgot-password-link">¿Olvidaste tu clave o no tienes una a&uacute;n?</a>
+                <a href="recuperar_password.php" class="forgot-password-link">¿Olvidaste tu clave o no tienes una a&uacute;n?</a>
                 <br><br>
 
                 <nav class="login-card-footer-nav">
