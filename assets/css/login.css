@@ -1,6 +1,7 @@
 body {
   font-family: "Karla", sans-serif;
-  background-color: #d0d0ce;
+  background-color: #005C2A;
+  /*#d0d0ce*/
   min-height: 100vh; }
 
 .brand-wrapper {
@@ -52,7 +53,7 @@ body {
       color: #919aa3; }
   .login-card .login-btn {
     padding: 13px 20px 12px;
-    background-color: #000;
+    background-color: #005C2A;
     border-radius: 4px;
     font-size: 17px;
     font-weight: bold;
@@ -60,9 +61,9 @@ body {
     color: #fff;
     margin-bottom: 24px; }
     .login-card .login-btn:hover {
-      border: 1px solid #000;
-      background-color: transparent;
-      color: #000; }
+      border: 1px solid #FFFFFF;
+      background-color: #00C45A;
+      color: #FFFFFF; }
   .login-card .forgot-password-link {
     font-size: 14px;
     color: #919aa3;
