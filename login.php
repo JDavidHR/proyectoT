@@ -35,14 +35,14 @@
           <div class="col-md-5">
             <div class="card-body">
               <p class="login-card-description">Bienvenid@, por favor ingrese los datos correspondientes</p>
-              <form action="Controlador/loginvalidacion.php" method="POST">
+              <form action="Controlador/login_validacion.php" method="POST">
                   <div class="form-group">
                     <label>Documento</label>
-                    <input type="email" name="email" id="email" class="form-control" placeholder="No. de Documento" required="">
+                    <input type="text" name="doc" id="doc" class="form-control" placeholder="No. de Documento" required="">
                   </div>
                   <div class="form-group ">
                     <label>Clave</label>                
-                    <input type="password" name="password" id="password" class="form-control" placeholder="***********" required="">
+                    <input type="password" name="pass" id="pass" class="form-control" placeholder="***********" required="">
                   </div>
                   <div class="form-group mb-4">
                       <select class="form-control " name="tipousuario" required>

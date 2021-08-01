@@ -2,10 +2,9 @@
 <html>
 <head>
   <title>Login</title>
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" id="bootstrap-css">
-  <link rel="stylesheet" type="text/css" href="css/style_login.css">
-  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" id="bootstrap-css">
+  <link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
 </head>
 <body>
     <div class="col-lg-offset-3 col-lg-6">
@@ -40,7 +39,7 @@
                     //si estado es = 1 el usuario esta activo
                     if($estado == 1){
                         //realizo la consulta para ver si existe un usuario en la bd y esta activo
-                        $usuarios= $mysql->efectuarConsulta("select asistencia.estudiante.id_estudiante, asistencia.estudiante.nombres, asistencia.estudiante.tipo_usuario_id_tipo_usuario from estudiante where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
+                        $usuarios= $mysql->efectuarConsulta("select asistencia.estudiante.id_estudiante, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.estudiante.tipo_usuario_id_tipo_usuario from estudiante where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
                         //Cuento si la consulta esta vacia
                         if (!empty($usuarios)){
                             //consulto si existen filas en el objeto
@@ -50,39 +49,41 @@
                                 //recorro el resultado de la consulta y la almaceno en una variable
                                 while ($resultado= mysqli_fetch_assoc($usuarios)){
                                     //almaceno los resultados en variables
-                                    $id_estudiante = $resultado["id_estudiante"];
-                                    $nombre = $resultado["nombres"];
+                                    $id_estudiante = $resultado['id_estudiante'];
+                                    $nombre = $resultado['nombres'];
+                                    $apellido = $resultado['apellidos'];
                                     $tipo_usuario = $resultado['tipo_usuario_id_tipo_usuario'];
                                 }
                                 // Almaceno las variables en sesiones
                                 $_SESSION['idEstudiante'] = $id_estudiante;
                                 $_SESSION['nombre'] = $nombre;
+                                $_SESSION['apellido'] = $apellido;
                                 $_SESSION['tipousuario'] = $tipo_usuario;
                                  //redirecciono al index
-                                header("Location: ../index_estudiante.php");
+                                header("Location: ../index.php");
                             }else{
                                 //Mesanje de error por si no hay filas en la consulta
-                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta o esta inactivo.</div>";
+                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta o esta inactivo.</div>";
                                 header( "refresh:3;url=../login.php" );
                             }                                    
                         }else{
                             //Mensaje de error si la consulta esta vacia
-                            echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta o esta inactivo.</div>";
+                            echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta o esta inactivo.</div>";
                             header( "refresh:3;url=../login.php" ); 
                         } 
                     }else{
                         //Mensaje de error si el usuario esta desactivado
-                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>El usuario esta inactivo.</div>";
+                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> El usuario esta inactivo.</div>";
                         header( "refresh:3;url=../login.php" ); 
                     }      
                 }else{
                     //Mensaje de error si la consulta del estado no tiene filas
-                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta.</div>";
+                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta.</div>";
                     header( "refresh:3;url=../login.php" ); 
                 }                    
             }else{
                 //Mensaje de error si la consulta del estado esta vacio
-                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>No existe el usuario.</div>";
+                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> No existe el usuario.</div>";
                 header( "refresh:3;url=../login.php" ); 
             }            
            //pregunto si el tipo usuario es 2 = paciente 
@@ -101,7 +102,7 @@
                     //si estado es = 1 el usuario esta activo
                     if($estado == 1){
                         //realizo la consulta para ver si existe un usuario en la bd y esta activo
-                        $usuarios= $mysql->efectuarConsulta("select asistencia.docente.id_docente, asistencia.docente.nombres, asistencia.docente.tipo_usuario_id_tipo_usuario from docente where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
+                        $usuarios= $mysql->efectuarConsulta("select asistencia.docente.id_docente, asistencia.docente.nombres, asistencia.docente.apellidos, asistencia.docente.tipo_usuario_id_tipo_usuario from docente where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
                         //Cuento si la consulta esta vacia
                         if (!empty($usuarios)){
                             //consulto si existen filas en el objeto
@@ -111,39 +112,41 @@
                                 //recorro el resultado de la consulta y la almaceno en una variable
                                 while ($resultado= mysqli_fetch_assoc($usuarios)){
                                     //almaceno los resultados en variables
-                                    $id_docente = $resultado["id_docente"];
-                                    $nombre = $resultado["nombres"];
+                                    $id_docente = $resultado['id_docente'];
+                                    $nombre = $resultado['nombres'];
+                                    $apellido = $resultado['apellidos'];
                                     $tipo_usuario = $resultado['tipo_usuario_id_tipo_usuario'];
                                 }
                                 // Almaceno las variables en sesiones
                                 $_SESSION['idDocente'] = $id_docente;
                                 $_SESSION['nombre'] = $nombre;
+                                $_SESSION['apellido'] = $apellido;
                                 $_SESSION['tipousuario'] = $tipo_usuario;
                                  //redirecciono al index
-                                header("Location: ../index_docente.php");
+                                header("Location: ../index.php");
                             }else{
                                 //Mesanje de error por si no hay filas en la consulta
-                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta o esta inactivo.</div>";
+                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta o esta inactivo.</div>";
                                 header( "refresh:3;url=../login.php" );
                             }                                    
                         }else{
                             //Mensaje de error si la consulta esta vacia
-                            echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta o esta inactivo.</div>";
+                            echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta o esta inactivo.</div>";
                             header( "refresh:3;url=../login.php" ); 
                         } 
                     }else{
                         //Mensaje de error si el usuario esta desactivado
-                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>El usuario esta inactivo.</div>";
+                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> El usuario esta inactivo.</div>";
                         header( "refresh:3;url=../login.php" ); 
                     }      
                 }else{
                     //Mensaje de error si la consulta del estado no tiene filas
-                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta.</div>";
+                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta.</div>";
                     header( "refresh:3;url=../login.php" ); 
                 }                    
             }else{
                 //Mensaje de error si la consulta del estado esta vacio
-                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>No existe el usuario.</div>";
+                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> No existe el usuario.</div>";
                 header( "refresh:3;url=../login.php" ); 
             }            
            //pregunto si el tipo usuario es 2 = paciente 
@@ -162,7 +165,7 @@
                     //si estado es = 1 el usuario esta activo
                     if($estado == 1){
                         //realizo la consulta para ver si existe un usuario en la bd y esta activo
-                        $usuarios= $mysql->efectuarConsulta("select asistencia.administrador.id_administrador, asistencia.administrador.nombres, asistencia.administrador.tipo_usuario_id_tipo_usuario from administrador where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
+                        $usuarios= $mysql->efectuarConsulta("select asistencia.administrador.id_administrador, asistencia.administrador.nombres, asistencia.administrador.apellidos, asistencia.administrador.tipo_usuario_id_tipo_usuario from administrador where documento = ".$usuario." and clave = '".$pass."' and estado = 1"); 
                         //Cuento si la consulta esta vacia
                         if (!empty($usuarios)){
                             //consulto si existen filas en el objeto
@@ -172,20 +175,22 @@
                                 //recorro el resultado de la consulta y la almaceno en una variable
                                 while ($resultado= mysqli_fetch_assoc($usuarios)){
                                     //almaceno los resultados en variables
-                                    $id_administrador = $resultado["id_administrador"];
-                                    $nombre = $resultado["nombres"];
+                                    $id_administrador = $resultado['id_administrador'];
+                                    $nombre = $resultado['nombres'];
+                                    $apellido = $resultado['apellidos'];
                                     $tipo_usuario = $resultado['tipo_usuario_id_tipo_usuario'];
                                 }
                                 // Almaceno las variables en sesiones
                                 $_SESSION['idAdministrador'] = $id_administrador;
                                 $_SESSION['nombre'] = $nombre;
+                                $_SESSION['apellido'] = $apellido;
                                 $_SESSION['tipousuario'] = $tipo_usuario;
                                  //redirecciono al index
-                                header("Location: ../index_administrador.php");
+                                header("Location: ../index.php");
                             }else{
                                 //Mesanje de error por si no hay filas en la consulta
-                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login_teatro.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta o esta inactivo.</div>";
-                                header( "refresh:3;url=../login_teatro.php" );
+                                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta o esta inactivo.</div>";
+                                header( "refresh:3;url=../login.php" );
                             }                                    
                         }else{
                             //Mensaje de error si la consulta esta vacia
@@ -194,17 +199,17 @@
                         } 
                     }else{
                         //Mensaje de error si el usuario esta desactivado
-                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>El usuario esta inactivo.</div>";
+                        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> El usuario esta inactivo.</div>";
                         header( "refresh:3;url=../login.php" ); 
                     }      
                 }else{
                     //Mensaje de error si la consulta del estado no tiene filas
-                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>Usuario o contraseña incorrecta.</div>";
+                    echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> Usuario o contraseña incorrecta.</div>";
                     header( "refresh:3;url=../login.php" ); 
                 }                    
             }else{
                 //Mensaje de error si la consulta del estado esta vacio
-                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>No existe el usuario.</div>";
+                echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> No existe el usuario.</div>";
                 header( "refresh:3;url=../login.php" ); 
             }            
            //pregunto si el tipo usuario es 2 = paciente 
@@ -212,7 +217,7 @@
         //Desconecto la conexion de la bD
         $mysql->desconectar();          
     }else{
-        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong>No se enviaron los datos.</div>";
+        echo "<div class=\"alert alert-warning alert-dismissible\"><a href=\"../login.php\" class=\"close\" data-dismiss=\"alert\" aria-label=\"close\">&times;</a><strong>Alerta!</strong> No se enviaron los datos.</div>";
         header( "refresh:3;url=../login.php" );
     }   
 ?>
