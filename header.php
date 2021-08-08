@@ -58,7 +58,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Men&uacute;</div>
-                            <a class="nav-link" href="consultar_horario.php">
+                            <a class="nav-link" href="paginas/estudiante/consultar_horario.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                                 Consultar horario
                             </a>
@@ -66,7 +66,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                                 Validar asistencia
                             </a>
-                            <a class="nav-link" href="clases_asistidas.php">
+                            <a class="nav-link" href="paginas/estudiante/clases_asistidas.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>
                                 Clases asistidas
                             </a>
