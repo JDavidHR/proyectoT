@@ -37,10 +37,9 @@
                 $semestre = $valores1['semestre'];
             }
 
-            //consultas para las tablas de asistencia del estudiante
-            $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_estudiante.ida_estudiante, asistencia.a_estudiante.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_estudiante.fecha, asistencia.a_estudiante.asistio FROM a_estudiante JOIN asistencia.clase ON asistencia.a_estudiante.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_estudiante.asistio = 'Si' GROUP BY asistencia.materia.nombre");
+            //consultas para la del estudiante
+            $seleccionmateria = $mysql->efectuarConsulta("SELECT estudiante.id_estudiante, grupo.Estudiante_id_estudiante, materia.nombre as nombremateria, materia.id_materia FROM estudiante JOIN grupo on estudiante.id_estudiante = grupo.Estudiante_id_estudiante join clase on clase.Grupo_id_grupo = grupo.id_grupo join materia on materia.id_materia = clase.Materia_id_materia where estudiante.id_estudiante = " . $id_estudiante . " group by id_materia");
 
-            $MostrarDatos2 = $mysql->efectuarConsulta("SELECT asistencia.a_estudiante.ida_estudiante, asistencia.a_estudiante.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_estudiante.fecha, asistencia.a_estudiante.asistio FROM a_estudiante JOIN asistencia.clase ON asistencia.a_estudiante.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_estudiante.asistio = 'No' GROUP BY asistencia.materia.nombre");
 
             //se desconecta de la base de datos
             $mysql->desconectar();
@@ -119,7 +118,10 @@
                                     <div class="row">
                                         <center>
                                             <i><b>
-                                                    <p class="mb-4">Clases Asistidas</p>
+                                                    <p class="mb-4">
+                                                        Recuerda que para registrar tu asistencia necesitas el codigo generado
+                                                        por el docente, ¡Pidelo primero!
+                                                    </p>
                                                 </b></i>
                                         </center>
                                     </div>
@@ -128,71 +130,22 @@
                                         <table id="" class="table table-striped table-bordered" style="width:100%">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Clase</th>
-                                                    <th scope="col">Grupo</th>
-                                                    <th scope="col">Fecha de Registro</th>
-                                                    <th scope="col">Asistio</th>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Nombre</th>
                                                     <th scope="col">Opciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    while ($valores1 = mysqli_fetch_assoc($MostrarDatos)) {
-                                                        $ida_estudiante = $valores1['ida_estudiante'];
+                                                    while ($valores1 = mysqli_fetch_assoc($seleccionmateria)) {
+                                                        $id_materia = $valores1['id_materia'];
                                                     ?>
-                                                        <td><?php echo $valores1['nombre'] ?></td>
-                                                        <td><?php echo $valores1['nombregrupo'] ?></td>
-                                                        <td><?php echo $valores1['fecha'] ?></td>
-                                                        <td style="color: green;"><?php echo $valores1['asistio'] ?></td>
+                                                        <td><?php echo $valores1['id_materia'] ?></td>
+                                                        <td><?php echo $valores1['nombremateria'] ?></td>
                                                         <td>
                                                             <div class="text-center">
-                                                                <a class="btn" style="background-color: #2EC82E;color: white" href='vista_a_estudiante.php?ida_estudiante=<?php echo $ida_estudiante; ?>' role="button"><i class="fas fa-eye"></i></a>
-                                                            </div>
-                                                        </td>
-                                                </tr>
-                                            <?php
-                                                    }
-                                            ?>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-
-                                    <!--tabla de clases no asistidas-->
-                                    <br><br>
-                                    <div class="row">
-                                        <center>
-                                            <i><b>
-                                                    <p class="mb-4">Clases no Asistidas</p>
-                                                </b></i>
-                                        </center>
-                                    </div>
-
-                                    <div class="col-md-6 col-md-offset-3">
-                                        <table id="" class="table table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                                <tr>
-                                                    <th scope="col">Clase</th>
-                                                    <th scope="col">Grupo</th>
-                                                    <th scope="col">Fecha de Registro</th>
-                                                    <th scope="col">Asistio</th>
-                                                    <th scope="col">Opciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <?php
-                                                    while ($valores2 = mysqli_fetch_assoc($MostrarDatos2)) {
-                                                        $ida_estudiante = $valores1['ida_estudiante'];
-                                                    ?>
-                                                        <td><?php echo $valores2['nombre'] ?></td>
-                                                        <td><?php echo $valores2['nombregrupo'] ?></td>
-                                                        <td><?php echo $valores2['fecha'] ?></td>
-                                                        <td style="color: red;"><?php echo $valores2['asistio'] ?></td>
-                                                        <td>
-                                                            <div class="text-center">
-                                                                <a class="btn" style="background-color: #2EC82E;color: white" href='vista_a_estudiante.php?ida_estudiante=<?php echo $ida_estudiante; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                                <a class="btn" style="background-color: #2EC82E;color: white" href='validar_asistencia2.php?id_materia=<?php echo $id_materia; ?>' role="button"><i class="fas fa-check-circle "></i></a>
                                                             </div>
                                                         </td>
                                                 </tr>

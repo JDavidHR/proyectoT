@@ -62,7 +62,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
                                 Consultar horario
                             </a>
-                            <a class="nav-link" href="validar_asistencia.php">
+                            <a class="nav-link" href="paginas/estudiante/validar_asistencia.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-calendar-check"></i></div>
                                 Validar asistencia
                             </a>
