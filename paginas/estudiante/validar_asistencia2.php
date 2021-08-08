@@ -132,7 +132,7 @@
                                     </div>
 
                                     <div class="col-md-6 col-md-offset-3">
-                                        <form id="contact" action="../../Controlador/validar_asistencia.php" method="post">
+                                        <form id="contact" action="../../Controlador/estudiante/validar_asistencia.php" method="post">
                                             <div class="container col-md-7 col-md-offset-3" style="text-align: center">
                                                 <center>
                                                     <h3>Registro de Asistencia</h3>
