@@ -221,7 +221,5 @@
         header("refresh:0;url=login.php");
     }
     ?>
-
 </body>
-
 </html>

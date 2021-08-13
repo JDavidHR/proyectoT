@@ -78,52 +78,6 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h2 class="mt-4" style="color: #6F6F6F;">Bienvenid@ <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></h2>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                                <div class="col-md-6 col-md-offset-3">
-                                    <table id="" class="table table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Documento</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Carrera</th>
-                                                <th scope="col">Semestre</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $documento ?></td>
-                                                <td><?php echo $nombres." ".$apellidos ?></td>
-                                                <td><?php echo $carrera ?></td>
-                                                <td><?php echo $semestre ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </center>
-                        </div>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                            <p class="mb-4">Bienvenido estudiante, aqu&iacute; podr&aacute;s realizar las diferentes gestiones de tu inter&eacute;s.<br>Recuerda, si deseas hacer alguna modificaci&oacute;n debes de ponerte en contacto con un administrador.
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
         </div>
         <?php
             }else if($_SESSION['tipousuario'] == 2){ //Sesion como docente
@@ -143,7 +97,7 @@
         ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3">Cotecnova - Inicio</a>
+            <a class="navbar-brand ps-3" href="index.php">Cotecnova - Inicio</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar-->
@@ -186,50 +140,6 @@
                     </div>
                 </nav>
             </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h2 class="mt-4" style="color: #6F6F6F;">Bienvenid@ <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></h2>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                                <div class="col-md-6 col-md-offset-3">
-                                    <table id="" class="table table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Documento</th>
-                                                <th scope="col">Nombre</th>
-                                                <th scope="col">Tipo de usuario</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $documento ?></td>
-                                                <td><?php echo $nombres." ".$apellidos ?></td>
-                                                <td><?php echo $tipo_usuario ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </center>
-                        </div>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                            <p class="mb-4">Bienvenido docente, en el panel izquierdo de este espacio podr&aacute; tener acceso a toda la informaci&oacute;n acad&eacute;mica y las funciones que le corresponden.
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
         </div>
         <?php
             }else if($_SESSION['tipousuario'] == 3){ //Sesion como administrador
@@ -248,7 +158,7 @@
         ?>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3">Cotecnova - Inicio</a>
+            <a class="navbar-brand ps-3" href="index.php">Cotecnova - Inicio</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar-->
@@ -302,48 +212,6 @@
                         <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?>
                     </div>
                 </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h2 class="mt-4" style="color: #6F6F6F;">Bienvenid@ <?php echo $_SESSION['nombre']." ".$_SESSION['apellido']?></h2>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                                <div class="col-md-6 col-md-offset-3">
-                                    <table id="" class="table table-striped table-bordered" style="width:100%">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Documento</th>
-                                                <th scope="col">Nombre</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><?php echo $documento ?></td>
-                                                <td><?php echo $nombres." ".$apellidos ?></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </center>
-                        </div>
-                        <br><br>
-                        <div class="row">
-                            <center>
-                            <p class="mb-4">Bienvenido administrador, en el panel izquierdo de este espacio podr&aacute; tener acceso a toda la informacion acedemica, como Administrador puede hacer todas las operaciones disponibles. Si desea agregar, modificar, eliminar o buscar un dato recuerde hacerlo desde el correspondiente m&oacute;dulo.
-                            </p>
-                            </center>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
-                        </div>
-                    </div>
-                </footer>
             </div>
         </div>
         <?php

@@ -60,7 +60,7 @@
                   <input name="sesion" id="sesion" class="btn btn-block login-btn mb-4" type="submit" value="Iniciar sesi&oacute;n">
                 </form>
 
-                <a href="paginas/recuperar_clave.php" class="forgot-password-link">¿Olvidaste tu clave o no tienes una a&uacute;n?</a>
+                <a href="recuperar_clave.php" class="forgot-password-link">¿Olvidaste tu clave o no tienes una a&uacute;n?</a>
                 <br><br>
 
                 <nav class="login-card-footer-nav">
