@@ -30,25 +30,24 @@
             $mysql = new MySQL;
             //Conectar a la base de datos
             $mysql->conectar();
-            $id_estudiante = $_SESSION['idEstudiante'];
-            //respectiva consulta para la seleccion de usuario
-            $datosestudiante = $mysql->efectuarConsulta("SELECT estudiante.id_estudiante, estudiante.documento, estudiante.nombres, estudiante.apellidos, estudiante.Carrera_id_carrera, estudiante.semestre, carrera.id_carrera, carrera.nombre from estudiante join carrera on estudiante.Carrera_id_carrera = carrera.id_carrera where estudiante.id_estudiante = " . $id_estudiante . "");
-            while ($valores1 = mysqli_fetch_assoc($datosestudiante)) {
+            $id_docente = $_SESSION['idDocente'];
+            //$id = $_POST['materiaselect'];
+
+            $datosdocente = $mysql->efectuarConsulta("SELECT docente.id_docente, docente.nombres, docente.apellidos, docente.documento, docente.tipo_usuario_id_tipo_usuario, tipo_usuario.nombre from docente join tipo_usuario on tipo_usuario.id_tipo_usuario = docente.tipo_usuario_id_tipo_usuario where docente.id_docente = " . $id_docente . "");
+            while ($valores1 = mysqli_fetch_assoc($datosdocente)) {
                 $documento = $valores1['documento'];
                 $nombres = $valores1['nombres'];
                 $apellidos = $valores1['apellidos'];
-                $carrera = $valores1['nombre'];
-                $semestre = $valores1['semestre'];
+                $tipo_usuario = $valores1['nombre'];
             }
 
-            //consultas para las tablas de asistencia del estudiante
-            $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_estudiante.ida_estudiante, asistencia.a_estudiante.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_estudiante.fecha, asistencia.a_estudiante.asistio FROM a_estudiante JOIN asistencia.clase ON asistencia.a_estudiante.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_estudiante.asistio = 'Si' GROUP BY asistencia.materia.nombre");
+            $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Activa' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.materia.nombre");
 
-            $MostrarDatos2 = $mysql->efectuarConsulta("SELECT asistencia.a_estudiante.ida_estudiante, asistencia.a_estudiante.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_estudiante.fecha, asistencia.a_estudiante.asistio FROM a_estudiante JOIN asistencia.clase ON asistencia.a_estudiante.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_estudiante.asistio = 'No' GROUP BY asistencia.materia.nombre");
+            $MostrarDatos2 = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Inactiva' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.materia.nombre");
         }
         $mysql->desconectar();
         //Si el usuario es un estudiante
-        if ($_SESSION['tipousuario'] == 1) {
+        if ($_SESSION['tipousuario'] == 2) {
     ?>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
@@ -62,16 +61,14 @@
                                         <tr>
                                             <th scope="col">Documento</th>
                                             <th scope="col">Nombre</th>
-                                            <th scope="col">Carrera</th>
-                                            <th scope="col">Semestre</th>
+                                            <th scope="col">Tipo de usuario</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td><?php echo $documento ?></td>
                                             <td><?php echo $nombres . " " . $apellidos ?></td>
-                                            <td><?php echo $carrera ?></td>
-                                            <td><?php echo $semestre ?></td>
+                                            <td><?php echo $tipo_usuario ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -82,45 +79,37 @@
 
                     <center>
                         <b>
-                            <p class="mb-4">Distribuci&oacute;n de las clases</p>
+                            <p class="mb-4">Clases vistas (Activas)</p>
                         </b>
                     </center>
                     <div class="row">
                         <center>
-                            <!--tabla de clases asistidas-->
-                            <br><br>
-                            <div class="row">
-                                <center>
-                                    <i><b>
-                                            <p class="mb-4">Clases Asistidas</p>
-                                        </b></i>
-                                </center>
-                            </div>
-
-                            <div class="col-md-6 col-md-offset-3">
+                            <div class="col-md-8 col-md-offset-3">
                                 <table id="" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Clase</th>
-                                            <th scope="col">Grupo</th>
-                                            <th scope="col">Fecha de Registro</th>
-                                            <th scope="col">Asistio</th>
-                                            <th scope="col">Opciones</th>
+                                            <th>Nombre de la clase</th>
+                                            <th>Nombre del grupo</th>
+                                            <th>Fecha de registro</th>
+                                            <th>Estado</th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <?php
                                             while ($valores1 = mysqli_fetch_assoc($MostrarDatos)) {
-                                                $ida_estudiante = $valores1['ida_estudiante'];
+                                                $ida_docente = $valores1['ida_docente'];
                                             ?>
                                                 <td><?php echo $valores1['nombre'] ?></td>
                                                 <td><?php echo $valores1['nombregrupo'] ?></td>
                                                 <td><?php echo $valores1['fecha'] ?></td>
-                                                <td style="color: green;"><?php echo $valores1['asistio'] ?></td>
+                                                <td><?php echo $valores1['estado'] ?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <a class="btn" style="background-color: #2EC82E;color: white" href='vista_a_estudiante.php?ida_estudiante=<?php echo $ida_estudiante; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                        <a class="btn" style="background-color: #2EC82E;color: white" href='update_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                        <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                        <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/desactivar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye-slash"></i></a>
                                                     </div>
                                                 </td>
                                         </tr>
@@ -130,42 +119,42 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </center>
+                    </div>
+                    <br><br>
 
-
-                            <!--tabla de clases no asistidas-->
-                            <br><br>
-                            <div class="row">
-                                <center>
-                                    <i><b>
-                                            <p class="mb-4">Clases no Asistidas</p>
-                                        </b></i>
-                                </center>
-                            </div>
-
-                            <div class="col-md-6 col-md-offset-3">
+                    <center>
+                        <b>
+                            <p class="mb-4">Clases vistas (Inactivas)</p>
+                        </b>
+                    </center>
+                    <div class="row">
+                        <center>
+                            <div class="col-md-8 col-md-offset-3">
                                 <table id="" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Clase</th>
-                                            <th scope="col">Grupo</th>
-                                            <th scope="col">Fecha de Registro</th>
-                                            <th scope="col">Asistio</th>
-                                            <th scope="col">Opciones</th>
+                                            <th>Nombre de la clase</th>
+                                            <th>Nombre del grupo</th>
+                                            <th>Fecha de registro</th>
+                                            <th>Estado</th>
+                                            <th>Opciones</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <?php
-                                            while ($valores2 = mysqli_fetch_assoc($MostrarDatos2)) {
-                                                $ida_estudiante = $valores1['ida_estudiante'];
+                                            while ($valores1 = mysqli_fetch_assoc($MostrarDatos2)) {
+                                                $ida_docente = $valores1['ida_docente'];
                                             ?>
-                                                <td><?php echo $valores2['nombre'] ?></td>
-                                                <td><?php echo $valores2['nombregrupo'] ?></td>
-                                                <td><?php echo $valores2['fecha'] ?></td>
-                                                <td style="color: red;"><?php echo $valores2['asistio'] ?></td>
+                                                <td><?php echo $valores1['nombre'] ?></td>
+                                                <td><?php echo $valores1['nombregrupo'] ?></td>
+                                                <td><?php echo $valores1['fecha'] ?></td>
+                                                <td><?php echo $valores1['estado'] ?></td>
                                                 <td>
                                                     <div class="text-center">
-                                                        <a class="btn" style="background-color: #2EC82E;color: white" href='vista_a_estudiante.php?ida_estudiante=<?php echo $ida_estudiante; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                        <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                        <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/activar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
                                                     </div>
                                                 </td>
                                         </tr>

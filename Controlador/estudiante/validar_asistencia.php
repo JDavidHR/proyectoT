@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit']) && isset($_POST['codigo_clase']) && isset($_POST['idmateria']) && isset($_POST['fechaclase'])){
     //Archivo requerido para hacer las peticiones a la base de datos
-    require_once '../Modelo/MySQL.php';
+    require_once '../../Modelo/MySQL.php';
 
     session_start();
     $id_estudiante = $_SESSION['idEstudiante'];
