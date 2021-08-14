@@ -10,6 +10,8 @@
     <title>Sistema acad&eacute;mico</title>
     <link href="css/style2.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/registro.css" rel="stylesheet" media="all">
+    <link href="css/style.min.css" rel="stylesheet">
     <script src="js/all.min.js" rel="stylesheet"></script>
 </head>
 
@@ -58,100 +60,61 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
+                    <!--tabla de clases asistidas-->
                     <div class="row">
                         <center>
-                            <div class="col-md-6 col-md-offset-3">
-                                <table id="" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Documento</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Carrera</th>
-                                            <th scope="col">Semestre</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $documento ?></td>
-                                            <td><?php echo $nombres . " " . $apellidos ?></td>
-                                            <td><?php echo $carrera ?></td>
-                                            <td><?php echo $semestre ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-6">
+                                <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
+                                    <div class="container col-md-12 col-md-offset-3" style="text-align: center">
+                                        <center>
+                                            <h3>Registro de Asistencia</h3>
+                                            <!--<h4>Materia Seleccionada: <?php echo $materia ?></h4>-->
+                                            <br>
+                                        </center>
+
+                                        <div class="form-group row" align="right">
+                                          <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
+                                          <div class="col-sm-7">
+                                            <select class="form-control " id="idmateria" name="idmateria" required>
+                                              <option value="<?php echo $id_materia ?>"><?php echo $materia ?></option>
+                                            </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group row" align="right">
+                                          <label class="col-sm-5 col-form-label">Codigo de la clase:</label>
+                                          <div class="col-sm-7">
+                                            <fieldset>
+                                              <input class="form-control " name="codigo_clase" placeholder="Escriba el codigo aqui" required>
+                                            </fieldset>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group row" align="right">
+                                          <label class="col-sm-5 col-form-label">Fecha de registro:</label>
+                                          <div class="col-sm-7">
+                                              <input type="date" name="fechaclase" class="form-control" required>
+                                          </div>
+                                        </div>
+
+                                        <br>
+                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Validar</button>
+                                    </div>
+                                </form>
                             </div>
                         </center>
                     </div>
-                    <!--tabla de clases asistidas-->
-                    <br><br>
-                    <center>
-                        <div class="row">
-                            <center>
-                                <i><b>
-                                        <p class="mb-4">
-                                            Registro de Asistencia
-                                        </p>
-                                    </b></i>
-                            </center>
-                        </div>
-
-                        <div class="col-md-6 col-md-offset-3">
-                            <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
-                                <div class="container col-md-7 col-md-offset-3" style="text-align: center">
-                                    <center>
-                                        <h3>Registro de Asistencia</h3>
-                                        <br>
-                                    </center>
-                                    <center>
-                                        <div class="form-group row" align="right">
-                                            <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
-                                            <div class="col-sm-7">
-                                                <select class="form-control " id="idmateria" name="idmateria" required>
-                                                    <option value="<?php echo $id_materia ?>"><?php echo $materia ?></option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row" align="right">
-                                            <label class="col-sm-5 col-form-label">Codigo de la clase:</label>
-                                            <div class="col-sm-7">
-                                                <fieldset>
-                                                    <input class="form-control " name="codigo_clase" placeholder="Escriba el codigo aqui" required>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row" align="right">
-                                            <label class="col-sm-5 col-form-label">Fecha de registro:</label>
-                                            <div class="col-sm-7">
-                                                <input type="date" name="fechaclase" class="form-control" required>
-                                            </div>
-                                        </div>
-
-                                        <br>
-                                        <fieldset>
-                                            <button style="background-color: green;color: white; border:black;" name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-4">Validar</button>
-                                        </fieldset>
-                                    </center>
-                                </div>
-                            </form>
-                        </div>
-                    </center>
                 </div>
- 
-        </main>
-        <footer class="py-4 bg-light mt-auto">
-            <div class="container-fluid px-4">
-                <div class="d-flex align-items-center justify-content-between small">
-                    <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
+                    </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </div>
-    </div>
-    <?php
-
-    ?>
 
     <!-- En caso de que no haya una sesion, se redirige al login-->
 <?php

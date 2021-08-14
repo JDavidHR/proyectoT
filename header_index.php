@@ -14,7 +14,7 @@
     <body class="sb-nav-fixed">
         <?php 
             //Inicia sesion
-            session_start();
+            //session_start();
             require_once 'Modelo/MySQL.php';
             //creacion de nueva "consulta"
             $mysql = new MySQL;
