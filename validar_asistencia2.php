@@ -75,7 +75,7 @@
                                         <div class="form-group row" align="right">
                                           <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
                                           <div class="col-sm-7">
-                                            <select class="form-control " id="idmateria" name="idmateria" required>
+                                            <select class="form-select " id="idmateria" name="idmateria" required>
                                               <option value="<?php echo $id_materia ?>"><?php echo $materia ?></option>
                                             </select>
                                           </div>

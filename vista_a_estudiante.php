@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sistema acad&eacute;mico</title>
-    <link href="css/style2.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/style2.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/registro.css" rel="stylesheet" media="all">
+    <link href="css/style.min.css" rel="stylesheet">
     <script src="js/all.min.js" rel="stylesheet"></script>
+
+    
 </head>
 
 <body class="sb-nav-fixed">
@@ -62,84 +64,56 @@
         //Si el usuario es un estudiante
         if ($_SESSION['tipousuario'] == 1) {
     ?>
+    <br>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
                     <div class="row">
+                        <!--Informacion de la clase seleccionada en el formulario anterior-->
                         <center>
                             <div class="col-md-6 col-md-offset-3">
-                                <table id="" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Documento</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Carrera</th>
-                                            <th scope="col">Semestre</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $documento ?></td>
-                                            <td><?php echo $nombres . " " . $apellidos ?></td>
-                                            <td><?php echo $carrera ?></td>
-                                            <td><?php echo $semestre ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <form id="contact" action="#" method="post">
+                                    <!--<h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>-->
+                                    <b><p class="mb-4">Informaci&oacuten de la clase</p></b>
+
+                                    <div class="form-group row" align="right">
+                                        <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
+                                        <div class="col-sm-6">
+                                            <select class="form-select" id="newcodeidmateria" name="newcodeidmateria" required>
+                                                <option value="<?php echo $idMateria ?>"><?php echo $nombremateria ?></option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row" align="right">
+                                        <label class="col-sm-5 col-form-label">Codigo:</label>
+                                        <div class="col-sm-6">
+                                            <fieldset>
+                                                <input placeholder="Codigo" disabled="" class="form-text" type="text" name="codigo" id="inputText" value="<?php echo $codigo ?>">
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <form id="contact" action="clases_asistidas.php" method="post">
+                                        <center>
+                                            <h3>Links y/o comentarios a la clase adjuntados</h3>
+                                        </center>
+                                        <br>
+                                        <div class="form-group row">
+                                            <fieldset>
+                                                <textarea name="comentarios" disabled><?php echo $links ?></textarea>
+                                            </fieldset>
+                                        </div>
+                                        <fieldset>
+                                            <button style="background-color: #037537;color: white; border:black;" name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-4">Volver</button>
+                                        </fieldset>
+                                </form>
                             </div>
                         </center>
                     </div>
-                    <!--Informacion de la clase seleccionada en el formulario anterior-->
-                    <br><br>
-                    <center>
-                    <div class="col-md-6 col-md-offset-3">
-                        <form id="contact" action="" method="post">
-                            <!--<h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>-->
-                            <i><b>
-                                    <p class="mb-4">Informaci&oacuten de la clase</p>
-                                </b></i>
-
-                            <div class="form-group row" align="right">
-                                <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
-                                <div class="col-sm-5">
-                                    <select class="form-control " id="newcodeidmateria" name="newcodeidmateria" required>
-                                        <option value="<?php echo $idMateria ?>"><?php echo $nombremateria ?></option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group row" align="right">
-                                <label class="col-sm-5 col-form-label">Codigo:</label>
-                                <div class="col-sm-5">
-                                    <fieldset>
-                                        <input placeholder="Codigo" disabled="" class="form-control" type="text" name="codigo" id="inputText" value="<?php echo $codigo ?>">
-                                    </fieldset>
-                                </div>
-                            </div>
-                        </form>
-
-                        <br><br>
-
-                        <form id="contact" action="clases_asistidas.php" method="post">
-                            <div class="col-md-6 col-md-offset-3" style="text-align: center">
-                                <center>
-                                    <h3>Links y/o comentarios a la clase adjuntados</h3>
-                                </center>
-                                <br>
-                                <div class="form-group row">
-                                    <fieldset>
-                                        <textarea name="comentarios" rows="5" cols="40" disabled placeholder="Escribe aquí una descripción..."><?php echo $links ?></textarea>
-                                    </fieldset>
-                                </div>
-                                <br>
-                                <fieldset>
-                                    <button style="background-color: green;color: white; border:black;" name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5">Volver</button>
-                                </fieldset>
-                            </div>
-                        </form>
-                    </div>
-                    </center>
+                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
