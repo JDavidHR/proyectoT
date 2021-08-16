@@ -72,6 +72,14 @@
                                             <br>
                                         </center>
 
+<<<<<<< Updated upstream
+=======
+                        <div class="col-md-6 col-md-offset-3">
+                            <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
+                                <div class="container col-md-7 col-md-offset-3" style="text-align: center">
+
+                                    <center>
+>>>>>>> Stashed changes
                                         <div class="form-group row" align="right">
                                           <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
                                           <div class="col-sm-7">
