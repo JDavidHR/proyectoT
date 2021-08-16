@@ -4,13 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <!--<meta http-equiv="X-UA-Compatible" content="IE=edge" />-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Sistema acad&eacute;mico</title>
-    <link href="css/style2.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/style2.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/registro.css" rel="stylesheet" media="all">
+    <link href="css/style.min.css" rel="stylesheet">
     <script src="js/all.min.js" rel="stylesheet"></script>
+
+    
 </head>
 
 <body class="sb-nav-fixed">
@@ -53,28 +55,26 @@
                   $tipo = $valores1['tipo_usuario_id_tipo_usuario'];
                 }
             }
-            $mysql->desconectar();
-            //Si el usuario es un estudiante
-            if ($_SESSION['tipousuario'] == 3) {
+        }
+        $mysql->desconectar();
+        //Si el usuario es un estudiante
+        if ($_SESSION['tipousuario'] == 3) {
     ?>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                    <center>
-                            <b>
-                                <p class="mb-4">Actualizar Estudiante</p>
-                                <p class="mb-4">Recuerda llenar todos los campos.</p>
-                            </b>
-                        </center>
+    <br>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content">
+            <main>
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <!--Informacion de la clase seleccionada en el formulario anterior-->
+                        <center>
                         
-                        <div class="row">
-                            <center>
-                                <div class="col-md-4 col-md-offset-3">
+                            <div class="col-md-6 col-md-offset-3">
+                            <b>
+                                <h4 class="mb-4">Actualizar Estudiante</h4>
+                            </b>
                                 <form id="contact" action="Controlador/administrador/update_estudiante.php?id=<?php echo $id_estudiante; ?>" method="post">
-                  
-                    
-                    <div class="form-group row" align="Left">
+                                <div class="form-group row" align="Left">
                       <label class="col-sm-3 col-form-label">ID del Estudiante</label>
                       <div class="col-sm-9">
                         <input placeholder="ID del estudiante" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_estudiante ?>">
@@ -178,28 +178,24 @@
                     <fieldset>
                       <button name="enviar" type="submit" id="contact-submit" data-submit="...Sending" class="col-3" style="background-color: green;color:white;border:black;" >Actualizar</button>
                     </fieldset>
-
-                  </form>
-                                </div>
-                            </center>
-                        </div>
-                        <br><br>
-
-
-                        
+                                </form>
+                            </div>
+                        </center>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
-                        </div>
+                    
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid px-4">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Asistencia estudiantil</div>
                     </div>
-                </footer>
-            </div>
+                </div>
+            </footer>
         </div>
+    </div>
     <?php
-            }
+
     ?>
 
     <!-- En caso de que no haya una sesion, se redirige al login-->

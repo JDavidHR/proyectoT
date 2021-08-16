@@ -42,17 +42,20 @@
     ?>
         <div id="layoutSidenav">
             <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                    <center>
-                            <b>
-                                <p class="mb-4">Gestionar Estudiantes</p>
-                            </b>
-                        </center>
-                        <div class="row">
-                            <center>
-                                <div class="col-md-10 col-md-offset-3">
-                                    <table id="" class="table table-striped table-bordered" style="width:100%">
+            <main>
+                <div class="container-fluid px-4">
+                <br><br>
+
+                <center>
+                    <b>
+                        <p class="mb-4">Estudiantes</p>
+                    </b>
+                </center>
+                    <div class="row">
+                        <center>
+                        <div class="card mb-10 col-md-12 col-md-offset-3">
+                            <div class="card-body">
+                                    <table id="datatablesSimple">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -90,7 +93,7 @@
                                         ?>
                                         </tbody>
                                     </table>
-                                    <a class="btn" style="background-color: #2962FF;color: white" href="registro_usuario.php" role="button"><i class="fas fa-user-plus"></i> Agregar Nuevo</a>
+                                    <a class="btn" style="background-color: #2962FF;color: white" href="registro_usuario.php" role="button"><i class="fas fa-address-book"></i> Agregar Nuevo</a>
                                 </div>
                             </center>
                             
@@ -105,8 +108,9 @@
                         </center>
                         <div class="row">
                             <center>
-                                <div class="col-md-10 col-md-offset-3">
-                                    <table id="" class="table table-striped table-bordered" style="width:100%">
+                            <div class="card mb-10 col-md-12 col-md-offset-3">
+                            <div class="card-body">
+                                    <table id="datatablesSimple2">
                                         <thead>
                                             <tr>
                                             <th>Id</th>
@@ -172,6 +176,9 @@
 ?>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/scripts.js"></script>
+<script src="js/simple-datatables.js"></script>
+<script src="js/datatables-simple-demo.js"></script>
+<script src="js/datatables-simple-demoo.js"></script>
 </body>
 
 </html>
