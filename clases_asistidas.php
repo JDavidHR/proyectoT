@@ -79,12 +79,12 @@
                             </div>
                         </center>
                     </div>
-<<<<<<< Updated upstream
+
                     <br>
-=======
+
                     <br><br>
 
->>>>>>> Stashed changes
+
                     <div class="row">
                         <center>
                             <!--tabla de clases asistidas-->
