@@ -44,8 +44,7 @@
             <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                <br><br>
-
+                <br>
                 <center>
                     <b>
                         <p class="mb-4">Estudiantes</p>
@@ -93,11 +92,11 @@
                                         ?>
                                         </tbody>
                                     </table>
-                                    <a class="btn" style="background-color: #2962FF;color: white" href="registro_usuario.php" role="button"><i class="fas fa-address-book"></i> Agregar Nuevo</a>
                                 </div>
                             </center>
-                            
                         </div>
+                        <br>
+                        <a class="btn col-2" style="background-color: #2962FF;color: white" href="registro_usuario.php" role="button"><i class="fas fa-address-book"></i> Agregar Nuevo</a>
                         
                         <br><br>
 

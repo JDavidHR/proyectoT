@@ -43,8 +43,7 @@
             <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                <br><br>
-
+                <br>
                 <center>
                     <b>
                         <p class="mb-4">Materias</p>

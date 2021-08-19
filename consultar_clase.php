@@ -70,6 +70,7 @@
         //Si el usuario es un estudiante
         if ($_SESSION['tipousuario'] == 2) {
     ?>
+    <br>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <main>

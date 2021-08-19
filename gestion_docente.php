@@ -44,8 +44,7 @@
             <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                <br><br>
-
+                <br>
                 <center>
                     <b>
                         <p class="mb-4">Docentes</p>
@@ -87,13 +86,12 @@
                                         ?>
                                         </tbody>
                                     </table>
-                                    <a class="btn" style="background-color: #2962FF;color: white" href="registro_docente.php" role="button"><i class="fas fa-address-book"></i> Agregar Nuevo</a>
-                                    <a class="btn" style="background-color: #2EC82E;color: white" href='Reportes/gestion_docentes.php' role="button"><i class="fas fa-file-upload"></i> Generar PDF</a>
                                 </div>
-                            </center>
-                            
+                            </center>                            
                         </div>
-                        
+                        <br>
+                        <a class="btn" style="background-color: #2962FF;color: white" href="registro_docente.php" role="button"><i class="fas fa-address-book"></i> Agregar Nuevo</a>
+                        <a class="btn" style="background-color: #2EC82E;color: white" href='Reportes/gestion_docentes.php' role="button"><i class="fas fa-file-upload"></i> Generar PDF</a>
                         <br><br>
 
                         <center>
