@@ -52,56 +52,100 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                           
-                                <form id="contact" action="Controlador/administrador/insertar_grupo.php" method="post">
-                                <b>
-                                <p class="mb-4">Registrar Grupo</p>
-                                <p class="mb-4">Recuerda llenar todos los campos.</p>
-                            </b>
-                            <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Id del grupo</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="..." class="form-control" type="text" name="id_grupo" id="inputText" required="">
-                                          </div>
-                                        </div>
+                        <div class="col-6">
+                            <div class="container col-md-10" style="text-align: center">
+                                <form id="contact" action="Controlador/insertar_grupos.php" method="post">
+                                    <h3>Registrar Grupo</h3>
+                                    <h4>Recuerda llenar todos los campos</h4>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Id del grupo</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="..." class="form-control" type="text" name="id_grupo" id="inputText" required="">
+                                      </div>
+                                    </div>
 
-                                        <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Nombre del grupo</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="..." class="form-control" type="text" name="nombre_grupo" id="inputText" required="">
-                                          </div>
-                                        </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Nombre del grupo</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="..." class="form-control" type="text" name="nombre_grupo" id="inputText" required="">
+                                      </div>
+                                    </div>
 
-                                        <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Estudiante:</label>
-                                          <div class="col-sm-9">
-                                            <select class="form-control" name="usuario" required>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Estudiante:</label>
+                                      <div class="col-sm-9">
+                                        <select class="form-select" name="usuario" required>
+                                            <option value="0" disabled="">Seleccione:</option>
+                                            <?php
+                                            //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                            while ($resultado = mysqli_fetch_assoc($seleccionEstudiante)) {
+                                            ?>
+                                                <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                                <option value="<?php echo $resultado['id_estudiante'] ?>"><?php echo $resultado['nombres'] ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                      </div>
+                                    </div>
+
+                                    <fieldset>
+                                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
+                                    </fieldset>
+                                    <br>
+
+                                    
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="container" style="text-align: center">
+                                <form id="contact" action="#">
+                                    <h2 align="center">Datos para tener en cuenta: </h2>
+                                    <label align="left">Tenga en cuenta los siguientes datos al momento de registrar un grupo y su estudiante al mismo.</label>
+                                    <label align="left">(Debe escribir los mismos datos en los campos para que el estudiante sea guardado en ese grupo, en caso de querer crear uno nuevo, no tiene que seguir lo anterior.)</label>
+                                    <br><br>
+                                    <fieldset>
+                                        <label>Id del grupo y nombre disponibles: </label>
+                                        <center>
+                                            <select name="gruposdisponibles" class="form-select">
                                                 <option value="0" disabled="">Seleccione:</option>
                                                 <?php
-                                                //ciclo while 
-                                                while ($resultado = mysqli_fetch_assoc($seleccionEstudiante)) {
+                                                //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                                while ($resultado = mysqli_fetch_assoc($selecciongrupo)) {
                                                 ?>
-                                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                                                    <option value="<?php echo $resultado['id_estudiante'] ?>"><?php echo $resultado['nombres'] ?></option>
+                                                  <!--se traen los datos a mostrar en el select-->
+                                                  <option value="<?php echo $resultado['id_grupo'] ?>"><?php echo $resultado['id_grupo']. " - Nombre: " . $resultado['nombre']?></option>
                                                 <?php
                                                 }
                                                 ?>
                                             </select>
-                                          </div>
-                                        </div>
+                                        </center>
+                                    </fieldset>
+                                    <br>
 
-                                        <fieldset>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
-                                        </fieldset>
-                                        <br>
+                                    <fieldset>
+                                        <label>Estudiantes en grupos: </label>
+                                        <center>
+                                            <select name="gruposdisponibles" class="form-select">
+                                                <option value="0" disabled="">Seleccione:</option>
+                                                <?php
+                                                //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                                while ($resultado = mysqli_fetch_assoc($selecciongrupo2)) {
+                                                ?>
+                                                  <!--se traen los datos a mostrar en el select-->
+                                                  <option value="<?php echo $resultado['idgrupo'] ?>"><?php echo $resultado['nombregrupo']. " - Estudiante: " . $resultado['nombres']?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </center>
+                                    </fieldset>
                                 </form>
                             </div>
-                        </center>
+                        </div>
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

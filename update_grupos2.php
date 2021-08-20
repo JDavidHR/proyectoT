@@ -61,34 +61,59 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                            
-                            <form id="contact" action="Controlador/administrador/update_grupo.php?id=<?php echo $id_grupo; ?>" method="post">
-                            <b>
-                                <p >Actualizar Grupo</p>
-                            </b>    
-                            <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Id del grupo</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="Id del horario" class="form-control" type="text" disabled="" name="id" id="inputText" value="<?php echo $id_grupo ?>">
-                                          </div>
-                                        </div>
+                        <div class="col-6">
+                            <div class="container col-md-10" style="text-align: center">
+                                <form id="contact" action="Controlador/update_grupo.php?id=<?php echo $id_grupo; ?>" method="post">
+                                    <h3>Modificar Grupo</h3>
+                                    <h4>Recuerda rellenar el campo</h4>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Id del grupo</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Id del horario" class="form-control" type="text" disabled="" name="id" id="inputText" value="<?php echo $id_grupo ?>">
+                                      </div>
+                                    </div>
 
-                                        <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Nombre del grupo</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="..." class="form-control" type="text" name="nombre_grupo" id="inputText" value="<?php echo $nombre_grupo ?>">
-                                          </div>
-                                        </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Nombre del grupo</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="..." class="form-control" type="text" name="nombre_grupo" id="inputText" value="<?php echo $nombre_grupo ?>">
+                                      </div>
+                                    </div>
 
+                                    <fieldset>
+                                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            <div class="container col-md-10" style="text-align: center">
+                                <form id="contact" action="#">
+                                    <h2 align="center">Datos para tener en cuenta: </h2>
+                                    <label align="left">Tenga en cuenta los siguientes datos al momento de cambiar el nombre del grupo.</label>
+                                    <label align="left">(Debe escribir los mismos datos en el campo para que el cambio se aplique correctamente.)</label>
+                                    <br><br>
                                         <fieldset>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
+                                            <label>Id del grupo y nombre disponibles: </label>
+                                            <center>
+                                                <select name="gruposdisponibles" class="form-select">
+                                                    <option value="0" disabled="">Seleccione:</option>
+                                                    <?php
+                                                    //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                                    while ($resultado = mysqli_fetch_assoc($selecciongrupo2)) {
+                                                    ?>
+                                                      <!--se traen los datos a mostrar en el select-->
+                                                      <option value="<?php echo $resultado['id_grupo'] ?>"><?php echo $resultado['id_grupo']. " - Nombre: " . $resultado['nombre']?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </center>
                                         </fieldset>
                                 </form>
-                                </div>
-                        </center>
+                            </div>
+                        </div>
                     </div>
                     
                 </div>

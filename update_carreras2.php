@@ -55,36 +55,29 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                            
-                            <form id="contact" action="Controlador/administrador/update_carrera.php?id=<?php echo $id_carrera; ?>" method="post">
-                            <b>
-                                <p >Actualizar Carrera</p>
-                            </b>    
-                            <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Id de la carrera</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="ID Carrera" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_carrera ?>">
-                                          </div>
-                                        </div>
-
-                                        <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Nombre</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="Nombre de la carrera" class="form-control" type="text" name="nombre_carrera" id="inputText" value="<?php echo $carrera ?>">
-                                          </div>
-                                        </div>
-
-                                        <fieldset>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
-                                        </fieldset>
-                                </form>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">  
+                            <form id="contact" action="Controlador/update_carreras.php?id=<?php echo $id_carrera; ?>" method="post">
+                                <h3>Modificar Carreras</h3>
+                                <label>Recuerda rellenar el campo</label>
+                                <br>
+                                <div class="form-group row" align="Left">
+                                  <label class="col-sm-3 col-form-label">Id de la carrera</label>
+                                  <div class="col-sm-9">
+                                    <input placeholder="ID Carrera" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_carrera ?>">
+                                  </div>
                                 </div>
-                        </center>
+
+                                <div class="form-group row" align="Left">
+                                  <label class="col-sm-3 col-form-label">Nombre</label>
+                                  <div class="col-sm-9">
+                                    <input placeholder="Nombre de la carrera" class="form-control" type="text" name="nombre_carrera" id="inputText" value="<?php echo $carrera ?>">
+                                  </div>
+                                </div>
+
+                                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
+                            </form>     
+                        </div>
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

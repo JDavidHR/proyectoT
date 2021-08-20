@@ -46,9 +46,8 @@
                 <div class="container-fluid px-4">
                 <br>
                 <center>
-                    <b>
-                        <p class="mb-4">Grupos</p>
-                    </b>
+                    <h3>Gestionar grupos (Activos)</h3>
+                    <br>
                 </center>
                     <div class="row">
                         <center>
@@ -94,9 +93,8 @@
                         <br><br>
 
                         <center>
-                            <b>
-                                <p class="mb-4">Grupos desactivados/eliminados</p>
-                            </b>
+                            <h3>Gestionar grupos (Inactivos/Eliminados)</h3>
+                            <br>
                         </center>
                         <div class="row">
                             <center>
