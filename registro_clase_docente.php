@@ -10,6 +10,8 @@
     <title>Sistema acad&eacute;mico</title>
     <link href="css/style2.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/registro.css" rel="stylesheet" media="all">
+    <link href="css/style.min.css" rel="stylesheet">
     <script src="js/all.min.js" rel="stylesheet"></script>
 </head>
 
@@ -54,54 +56,26 @@
                     <div class="row">
                         <center>
                             <div class="col-md-6 col-md-offset-3">
-                                <table id="" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Documento</th>
-                                            <th scope="col">Nombre</th>
-                                            <th scope="col">Tipo de usuario</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $documento ?></td>
-                                            <td><?php echo $nombres . " " . $apellidos ?></td>
-                                            <td><?php echo $tipo_usuario ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </center>
-                    </div>
-                    <br><br>
-
-                    <center>
-                        <b>
-                            <p class="mb-4">Registrar asistencia y clase de:</p>
-                        </b>
-                    </center>
-                    <div class="row">
-                        <center>
-                            <div class="col-md-4 col-md-offset-3">
                                 <form id="contact" action="registro_clase_docente2.php" method="post">
+                                    <h3>Registrar asistencia y clase de:</h3>
                                     <br>
-                                    <fieldset>
-                                        <select class="form-control" name="materiaselect" required>
-                                            <?php
-                                            //ciclo while 
-                                            while ($resultado = mysqli_fetch_assoc($seleccionmateria)) {
-                                            ?>
-                                                <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                                                <option value="<?php echo $resultado['id_materia'] ?>"><?php echo $resultado['nombremateria'] ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3" style="background-color: green;color:white;border:black;">Seleccionar</button>
-                                    </fieldset>
+                                    <div class="form-group">
+                                        <div class="col-sm-8">
+                                            <select class="form-select" name="materiaselect" required>
+                                                <?php
+                                                //ciclo while 
+                                                while ($resultado = mysqli_fetch_assoc($seleccionmateria)) {
+                                                ?>
+                                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                                    <option value="<?php echo $resultado['id_materia'] ?>"><?php echo $resultado['nombremateria'] ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Seleccionar</button>
                                 </form>
                             </div>
                         </center>

@@ -54,36 +54,29 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                            
-                            <form id="contact" action="Controlador/administrador/update_materia.php?id=<?php echo $id_materia; ?>" method="post">
-                            <b>
-                                <p >Actualizar Materia</p>
-                            </b>    
-                            <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Id de la materia</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="ID Materia" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_materia ?>">
-                                          </div>
-                                        </div>
-
-                                        <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Nombre</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="Nombre de la materia" class="form-control" type="text" name="nombre_materia" id="inputText" value="<?php echo $materia ?>">
-                                          </div>
-                                        </div>
-
-                                        <fieldset>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
-                                        </fieldset>
-                                </form>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">  
+                            <form id="contact" action="Controlador/update_materia.php?id=<?php echo $id_materia; ?>" method="post">
+                                <h3>Modificar Materia</h3>
+                                <label>Recuerda rellenar el campo</label>
+                                <br>
+                                <div class="form-group row" align="Left">
+                                  <label class="col-sm-3 col-form-label">Id de la materia</label>
+                                  <div class="col-sm-9">
+                                    <input placeholder="ID Materia" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_materia ?>">
+                                  </div>
                                 </div>
-                        </center>
+
+                                <div class="form-group row" align="Left">
+                                  <label class="col-sm-3 col-form-label">Nombre</label>
+                                  <div class="col-sm-9">
+                                    <input placeholder="Nombre de la materia" class="form-control" type="text" name="nombre_materia" id="inputText" value="<?php echo $materia ?>">
+                                  </div>
+                                </div>
+
+                                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
+                            </form>
+                        </div>
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

@@ -179,6 +179,10 @@
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="text-center">
+                                <a class="btn" style="background-color: #2EC82E;color: white" href='Reportes/reporte.php' role="button"><i class="mdi mdi-file-plus"></i>Generar PDF</a>
+                            </div>
+                            <br>
                         </center>
                     </div>
                 </div>

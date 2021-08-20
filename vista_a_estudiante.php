@@ -75,8 +75,8 @@
                             <div class="col-md-6 col-md-offset-3">
                                 <form id="contact" action="#" method="post">
                                     <!--<h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>-->
-                                    <b><p class="mb-4">Informaci&oacuten de la clase</p></b>
-
+                                    <h3>Datos de la clase</h3>
+                                    <br>
                                     <div class="form-group row" align="right">
                                         <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
                                         <div class="col-sm-6">

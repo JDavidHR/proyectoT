@@ -50,121 +50,118 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                           
-                                <form id="contact" action="Controlador/administrador/insertar_usuario.php" method="post">
-                                <b>
-                                <p class="mb-4">Registrar Estudiante</p>
-                                <p class="mb-4">Recuerda llenar todos los campos.</p>
-                            </b>
-                                <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Documento</label>
-                      <div class="col-sm-9">
-                        <input placeholder="..." class="form-control" type="text" name="documento_usuario" id="inputText" required="">
-                      </div>
-                    </div>
-                    
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Nombres</label>
-                      <div class="col-sm-9">
-                        <input placeholder="..." class="form-control" type="text" name="nombre_usuario" id="inputText" required="">
-                      </div>
-                    </div>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">
+                          <form id="contact" action="Controlador/insertar_usuario.php" method="post">
+                            <h3>Registrar Estudiante</h3>
+                            <label>Recuerda llenar todos los campos</label>
+                            <br><br>
 
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Apellidos</label>
-                      <div class="col-sm-9">
-                        <input placeholder="..." class="form-control" type="text" name="apellido_usuario" id="inputText" required="">
-                      </div>
-                    </div>
-                    
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Semestre</label>
-                      <div class="col-sm-9">
-                        <input placeholder="..." class="form-control" type="text" name="Semestre" id="inputText" required="">
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Clave</label>
-                      <div class="col-sm-9">
-                        <input placeholder="***" class="form-control" type="text" name="clave" id="inputText" required="">
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-3 col-form-label">Correo</label>
-                      <div class="col-sm-9">
-                        <input placeholder="..." class="form-control" type="email" name="correo" id="inputText" required="">
-                      </div>
-                    </div>
-
-                    <fieldset>
-                      <label>Tipo de usuario: </label>
-                      <center>
-                        <select class="form-control col-md-8 col-md-offset-1" name="tipousuario" required="">
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //ciclo while 
-                          while ($resultado = mysqli_fetch_assoc($seleccionUsuario)) {
-                          ?>
-                            <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                            <option value="<?php echo $resultado['id_tipo_usuario'] ?>"><?php echo $resultado['nombre'] ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </center>
-                    </fieldset>
-                    
-                    <br>
-                    <fieldset>
-                      <label>Carrera: </label>
-                      <center>
-                        <select name="carrera" class="form-control col-md-8 col-md-offset-1" required="">
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                          while ($valores1 = mysqli_fetch_assoc($seleccioncarrera)) {
-                          ?>
-                            <!--se traen los datos a mostrar en el select-->
-                            <option value="<?php echo $valores1['id_carrera'] ?>"><?php echo $valores1['nombre'] ?></option>';
-                          <?php
-                          }
-                          ?>
-
-                        </select>
-                      </center>
-                    </fieldset>
-                    <br>
-
-                    <fieldset>
-                      <label>Jornada: </label><br>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Diurna" required="">
-                        <label class="form-check-label" for="inlineRadio1">Diurna</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Nocturna">
-                        <label class="form-check-label" for="inlineRadio2">Nocturna</label>
-                      </div>
-                      <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Sabatina">
-                        <label class="form-check-label" for="inlineRadio3">Sabatina</label>
-                      </div>
-                    </fieldset>
-                    <br>
-                    
-                    <fieldset>
-                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3" style="background-color: green;color:white;border:black;" >Registrar</button>
-                    </fieldset>
-                                </form>
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Documento</label>
+                              <div class="col-sm-9">
+                                <input placeholder="..." class="form-control" type="text" name="documento_usuario" id="inputText" required="">
+                              </div>
                             </div>
-                        </center>
+                            
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Nombres</label>
+                              <div class="col-sm-9">
+                                <input placeholder="..." class="form-control" type="text" name="nombre_usuario" id="inputText" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Apellidos</label>
+                              <div class="col-sm-9">
+                                <input placeholder="..." class="form-control" type="text" name="apellido_usuario" id="inputText" required="">
+                              </div>
+                            </div>
+                            
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Semestre</label>
+                              <div class="col-sm-9">
+                                <input placeholder="..." class="form-control" type="text" name="Semestre" id="inputText" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Clave</label>
+                              <div class="col-sm-9">
+                                <input placeholder="***" class="form-control" type="text" name="clave" id="inputText" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-3 col-form-label">Correo</label>
+                              <div class="col-sm-9">
+                                <input placeholder="..." class="form-control" type="email" name="correo" id="inputText" required="">
+                              </div>
+                            </div>
+
+                            <fieldset>
+                              <label>Tipo de usuario: </label>
+                              <center>
+                                <select class="form-select col-md-8 col-md-offset-1" name="tipousuario" required="">
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                  while ($resultado = mysqli_fetch_assoc($seleccionUsuario)) {
+                                  ?>
+                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                    <option value="<?php echo $resultado['id_tipo_usuario'] ?>"><?php echo $resultado['nombre'] ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                </select>
+                              </center>
+                            </fieldset>
+                            
+                            <br>
+                            <fieldset>
+                              <label>Carrera: </label>
+                              <center>
+                                <select name="carrera" class="form-select col-md-8 col-md-offset-1" required="">
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                  while ($valores1 = mysqli_fetch_assoc($seleccioncarrera)) {
+                                  ?>
+                                    <!--se traen los datos a mostrar en el select-->
+                                    <option value="<?php echo $valores1['id_carrera'] ?>"><?php echo $valores1['nombre'] ?></option>';
+                                  <?php
+                                  }
+                                  ?>
+
+                                </select>
+                              </center>
+                            </fieldset>
+                            <br>
+
+                            <fieldset>
+                              <label>Jornada: </label><br>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Diurna" required="">
+                                <label class="form-check-label" for="inlineRadio1">Diurna</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Nocturna">
+                                <label class="form-check-label" for="inlineRadio2">Nocturna</label>
+                              </div>
+                              <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="Sabatina">
+                                <label class="form-check-label" for="inlineRadio3">Sabatina</label>
+                              </div>
+                            </fieldset>
+                            <br>
+
+                            <fieldset>
+                              <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
+                            </fieldset>
+                            <br>
+                          </form>
+                        </div>
+
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

@@ -10,6 +10,8 @@
     <title>Sistema acad&eacute;mico</title>
     <link href="css/style2.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/registro.css" rel="stylesheet" media="all">
+    <link href="css/style.min.css" rel="stylesheet">
     <script src="js/all.min.js" rel="stylesheet"></script>
 </head>
 
@@ -54,6 +56,7 @@
         //Si el usuario es un estudiante
         if ($_SESSION['tipousuario'] == 2) {
     ?>
+    <br>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <main>
@@ -84,18 +87,18 @@
 
                     <div class="row">
                         <center>
-                            <div class="col-md-4 col-md-offset-3">
+                            <div class="col-md-6 col-md-offset-3">
                                 <form id="contact" action="registro_clase_docente3.php" method="post">
                                     <?php echo "Materia seleccionada: " ?>
                                     <br>
-                                    <select class="form-control " id="materianombre" name="materianombre" required>
+                                    <select class="form-select" id="materianombre" name="materianombre" required>
                                         <option value="<?php echo $id ?>"><?php echo $smateria ?></option>
                                     </select>
                                     <br>
                                     <?php echo "Grupos disponibles: " ?>
                                     <br>
                                     <fieldset>
-                                        <select class="form-control " name="selectgrupo" required>
+                                        <select class="form-select" name="selectgrupo" required>
                                             <?php
                                             //ciclo while que nos sirve para traer cuales son los grpos disponibles
                                             while ($resultado = mysqli_fetch_assoc($selecciongrupo)) {
@@ -108,9 +111,7 @@
                                         </select>
                                     </fieldset>
                                     <br>
-                                    <fieldset>
-                                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3" style="background-color: green;color:white;border:black;">Seleccionar</button>
-                                    </fieldset>
+                                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Seleccionar</button>
                                 </form>
                             </div>
                         </center>

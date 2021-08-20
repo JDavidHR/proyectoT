@@ -48,31 +48,22 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-4 col-md-offset-3">
-                           
-                                <form id="contact" action="Controlador/administrador/insertar_aula.php" method="post">
-                                <b>
-                                <p class="mb-4">Registrar Aula</p>
-                                <p class="mb-4">Recuerda llenar todos los campos.</p>
-                            </b>
-                            <div class="form-group row" align="Left">
-                                          <label class="col-sm-3 col-form-label">Nombre</label>
-                                          <div class="col-sm-9">
-                                            <input placeholder="..." class="form-control" type="text" name="nombre_aula" id="inputText" required="">
-                                          </div>
-                                        </div>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">
+                            <form id="contact" action="Controlador/insertar_aula.php" method="post">
+                                <h3>Registrar Aula</h3>
+                                <label>Recuerda llenar el campo</label>
+                                <br>
+                                <div class="form-group row" align="Right">
+                                  <label class="col-sm-3 col-form-label">Nombre</label>
+                                  <div class="col-sm-8" align="center">
+                                    <input placeholder="..." class="form-control" type="text" name="nombre_aula" id="inputText" required="">
+                                  </div>
+                                </div>
 
-                                        <fieldset>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
-                                        </fieldset>
-                                        <br>
-                                </form>
-                            </div>
-                        </center>
+                                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
+                            </form>
+                        </div>
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

@@ -49,6 +49,7 @@
         //Si el usuario es un estudiante
         if ($_SESSION['tipousuario'] == 2) {
     ?>
+    <br>
     <div id="layoutSidenav">
         <div id="layoutSidenav_content">
             <main>
@@ -77,92 +78,110 @@
                     </div>
                     <br><br>
 
-                    <center>
-                        <b>
-                            <p class="mb-4">Clases vistas (Activas)</p>
-                        </b>
-                    </center>
                     <div class="row">
                         <center>
-                            <div class="col-md-8 col-md-offset-3">
-                                <table id="" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre de la clase</th>
-                                            <th>Nombre del grupo</th>
-                                            <th>Fecha de registro</th>
-                                            <th>Estado</th>
-                                            <th>Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <?php
-                                            while ($valores1 = mysqli_fetch_assoc($MostrarDatos)) {
-                                                $ida_docente = $valores1['ida_docente'];
-                                            ?>
-                                                <td><?php echo $valores1['nombre'] ?></td>
-                                                <td><?php echo $valores1['nombregrupo'] ?></td>
-                                                <td><?php echo $valores1['fecha'] ?></td>
-                                                <td><?php echo $valores1['estado'] ?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <a class="btn" style="background-color: #2EC82E;color: white" href='update_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
-                                                        <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
-                                                        <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/desactivar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye-slash"></i></a>
-                                                    </div>
-                                                </td>
-                                        </tr>
-                                    <?php
-                                            }
-                                    ?>
-                                    </tbody>
-                                </table>
+                            <!--tabla de clases asistidas-->
+                            <div class="card mb-4 col-md-10 col-md-offset-3">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Clases vistas (Activas)
+                                </div>
+                                <div class="card-body">
+                                    <table id="datatablesSimple">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre de la clase</th>
+                                                <th>Nombre del grupo</th>
+                                                <th>Fecha de registro</th>
+                                                <th>Estado</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nombre de la clase</th>
+                                                <th>Nombre del grupo</th>
+                                                <th>Fecha de registro</th>
+                                                <th>Estado</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                while ($valores1 = mysqli_fetch_assoc($MostrarDatos)) {
+                                                    $ida_docente = $valores1['ida_docente'];
+                                                ?>
+                                                    <td><?php echo $valores1['nombre'] ?></td>
+                                                    <td><?php echo $valores1['nombregrupo'] ?></td>
+                                                    <td><?php echo $valores1['fecha'] ?></td>
+                                                    <td><?php echo $valores1['estado'] ?></td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a class="btn" style="background-color: #2EC82E;color: white" href='update_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/desactivar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye-slash"></i></a>
+                                                        </div>
+                                                    </td>
+                                            </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </center>
-                    </div>
-                    <br><br>
+                            <br><br>
 
-                    <center>
-                        <b>
-                            <p class="mb-4">Clases vistas (Inactivas)</p>
-                        </b>
-                    </center>
-                    <div class="row">
-                        <center>
-                            <div class="col-md-8 col-md-offset-3">
-                                <table id="" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>Nombre de la clase</th>
-                                            <th>Nombre del grupo</th>
-                                            <th>Fecha de registro</th>
-                                            <th>Estado</th>
-                                            <th>Opciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <?php
-                                            while ($valores1 = mysqli_fetch_assoc($MostrarDatos2)) {
-                                                $ida_docente = $valores1['ida_docente'];
-                                            ?>
-                                                <td><?php echo $valores1['nombre'] ?></td>
-                                                <td><?php echo $valores1['nombregrupo'] ?></td>
-                                                <td><?php echo $valores1['fecha'] ?></td>
-                                                <td><?php echo $valores1['estado'] ?></td>
-                                                <td>
-                                                    <div class="text-center">
-                                                        <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
-                                                        <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/activar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
-                                                    </div>
-                                                </td>
-                                        </tr>
-                                    <?php
-                                            }
-                                    ?>
-                                    </tbody>
-                                </table>
+                            <!--tabla de clases no asistidas-->
+                            <div class="card mb-4 col-md-10 col-md-offset-3">
+                                <div class="card-header">
+                                    <i class="fas fa-table me-1"></i>
+                                    Clases vistas (Inactivas)
+                                </div>
+                                <div class="card-body">
+                                    <table id="datatablesSimple2">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre de la clase</th>
+                                                <th>Nombre del grupo</th>
+                                                <th>Fecha de registro</th>
+                                                <th>Estado</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Nombre de la clase</th>
+                                                <th>Nombre del grupo</th>
+                                                <th>Fecha de registro</th>
+                                                <th>Estado</th>
+                                                <th>Opciones</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <?php
+                                                while ($valores1 = mysqli_fetch_assoc($MostrarDatos2)) {
+                                                    $ida_docente = $valores1['ida_docente'];
+                                                ?>
+                                                    <td><?php echo $valores1['nombre'] ?></td>
+                                                    <td><?php echo $valores1['nombregrupo'] ?></td>
+                                                    <td><?php echo $valores1['fecha'] ?></td>
+                                                    <td><?php echo $valores1['estado'] ?></td>
+                                                    <td>
+                                                        <div class="text-center">
+                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/activar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                        </div>
+                                                    </td>
+                                            </tr>
+                                                <?php
+                                                }
+                                                ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </center>
                     </div>
@@ -187,8 +206,11 @@
             header("refresh:0;url=login.php");
         }
 ?>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/scripts.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/simple-datatables.js"></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <script src="js/datatables-simple-demoo.js"></script>
 </body>
 
 </html>

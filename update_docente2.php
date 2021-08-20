@@ -61,81 +61,76 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                            
-                            <form id="contact" action="Controlador/administrador/update_docente.php?id=<?php echo $id_docente; ?>" method="post">
-                            <b>
-                                <p >Actualizar Docente</p>
-                            </b>    
-                            <div class="form-group row" align="Left">
-                               
-                                              <label class="col-sm-3 col-form-label">Id del Docente</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="ID docente" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_docente ?>">
-                                              </div>
-                                            </div>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">
+                            <form id="contact" action="Controlador/update_docente.php?id=<?php echo $id_docente; ?>" method="post">
+                                <h3>Update Docente</h3>
+                                <h4>Recuerda llenar todos los campos</h4>
+                                <center>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Id del Docente</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="ID docente" disabled="" class="form-control" type="text" name="id" id="inputText" value="<?php echo $id_docente ?>">
+                                      </div>
+                                    </div>
 
-                                            <div class="form-group row" align="Left">
-                                              <label class="col-sm-3 col-form-label">Documento</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="Documento" class="form-control" type="text" name="documento_docente" id="inputText" value="<?php echo $doc ?>">
-                                              </div>
-                                            </div>
-                                            
-                                            <div class="form-group row" align="Left">
-                                              <label class="col-sm-3 col-form-label">Nombres</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="Nombres" class="form-control" type="text" name="nombre_docente" id="inputText" value="<?php echo $nombre ?>">
-                                              </div>
-                                            </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Documento</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Documento" class="form-control" type="text" name="documento_docente" id="inputText" value="<?php echo $doc ?>">
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Nombres</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Nombres" class="form-control" type="text" name="nombre_docente" id="inputText" value="<?php echo $nombre ?>">
+                                      </div>
+                                    </div>
 
-                                            <div class="form-group row" align="Left">
-                                              <label class="col-sm-3 col-form-label">Apellidos</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="Apellidos" class="form-control" type="text" name="apellido_docente" id="inputText" value="<?php echo $apellido ?>">
-                                              </div>
-                                            </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Apellidos</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Apellidos" class="form-control" type="text" name="apellido_docente" id="inputText" value="<?php echo $apellido ?>">
+                                      </div>
+                                    </div>
 
-                                            <div class="form-group row" align="Left">
-                                              <label class="col-sm-3 col-form-label">Clave</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="Clave" class="form-control" type="text" name="contrasena" id="inputText" value="<?php echo $pass ?>">
-                                              </div>
-                                            </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Clave</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Clave" class="form-control" type="text" name="contrasena" id="inputText" value="<?php echo $pass ?>">
+                                      </div>
+                                    </div>
 
-                                            <div class="form-group row" align="Left">
-                                              <label class="col-sm-3 col-form-label">Correo</label>
-                                              <div class="col-sm-9">
-                                                <input placeholder="Correo" class="form-control" type="text" name="correo" id="inputText" value="<?php echo $correo ?>">
-                                              </div>
-                                            </div>
+                                    <div class="form-group row" align="Left">
+                                      <label class="col-sm-3 col-form-label">Correo</label>
+                                      <div class="col-sm-9">
+                                        <input placeholder="Correo" class="form-control" type="text" name="correo" id="inputText" value="<?php echo $correo ?>">
+                                      </div>
+                                    </div>
 
-                                            <fieldset>
-                                                <label>Tipo de usuario</label>
-                                                <select class="form-control " name="tipousuario" required>
-                                                    <option value="0" disabled="">Seleccione:</option>
-                                                    <?php
-                                                    //ciclo while 
-                                                    while ($resultado = mysqli_fetch_assoc($seleccionUsuario)) {
-                                                    ?>
-                                                        <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                                                        <option value="<?php echo $resultado['id_tipo_usuario'] ?>"><?php echo $resultado['nombre'] ?></option>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </select>
-                                            </fieldset>
-                                        <br>
-                                        <fieldset>
-                                          <button name="enviar" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
-                                        </fieldset>
-                                </form>
-                                </div>
-                        </center>
+                                    <fieldset>
+                                        <label>Tipo de usuario</label>
+                                        <center>
+                                            <select class="form-select col-md-8" name="tipousuario" required>
+                                                <option value="0" disabled="">Seleccione:</option>
+                                                <?php
+                                                //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                                while ($resultado = mysqli_fetch_assoc($seleccionUsuario)) {
+                                                ?>
+                                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                                    <option value="<?php echo $resultado['id_tipo_usuario'] ?>"><?php echo $resultado['nombre'] ?></option>
+                                                <?php
+                                                }
+                                                ?>
+                                            </select>
+                                        </center>
+                                    </fieldset>
+                                </center>
+                                <br>
+                                <button name="enviar" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Actualizar</button>
+                            </form>
+                        </div>
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

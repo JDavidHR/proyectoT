@@ -53,135 +53,127 @@
                 <div class="container-fluid px-4">
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
-                        <center>
-                        
-                            <div class="col-md-6 col-md-offset-3">
-                           
-                                <form id="contact" action="Controlador/administrador/insertar_clase.php" method="post">
-                                <b>
-                                <p class="mb-4">Registrar Clase</p>
-                                <p class="mb-4">Recuerda llenar todos los campos.</p>
-                            </b>
+                        <div class="container col-md-6 col-md-offset-3" style="text-align: center">
+                          <form id="contact" action="Controlador/insertar_clase.php" method="post">
+                            <h3>Registrar clase</h3>
+                            <label>Recuerda llenar todos los campos</label>
+                            <br>
                             <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Selecciona el día:</label>
-                      <div class="col-sm-8">
-                        <select class="form-control " name="dia" required>
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //ciclo while 
-                          while ($resultado = mysqli_fetch_assoc($selecciondia)) {
-                          ?>
-                            <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                            <option value="<?php echo $resultado['id_dia'] ?>"><?php echo $resultado['nombredia'] ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Hora inicio: </label>
-                      <div class="col-sm-8">
-                        <input type="time" name="hora" class="form-control" min="07:00:00" max="22:00:00" required="">
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Hora fin: </label>
-                      <div class="col-sm-8">
-                        <input type="time" name="horafin" class="form-control" min="07:00:00" max="22:00:00" required="">
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Codigo de la clase: </label>
-                      <div class="col-sm-8">
-                        <input placeholder="..." class="form-control" type="text" name="codigo" id="inputText" required="">
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Docente:</label>
-                      <div class="col-sm-8">
-                        <select class="form-control " name="nombre_docente" required>
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //ciclo while 
-                          while ($resultado = mysqli_fetch_assoc($selecciondocente)) {
-                          ?>
-                            <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                            <option value="<?php echo $resultado['id_docente'] ?>"><?php echo $resultado['nombredocente']. " ". $resultado['apellidos']?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Aula:</label>
-                      <div class="col-sm-8">
-                        <select class="form-control " name="aula" required>
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //ciclo while 
-                          while ($resultado = mysqli_fetch_assoc($seleccionaula)) {
-                          ?>
-                            <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                            <option value="<?php echo $resultado['id_aula'] ?>"><?php echo $resultado['nombre'] ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Materia:</label>
-                      <div class="col-sm-8">
-                        <select class="form-control " name="materia" required>
-                          <option value="0" disabled="">Seleccione:</option>
-                          <?php
-                          //ciclo while 
-                          while ($resultado = mysqli_fetch_assoc($seleccionmateria)) {
-                          ?>
-                            <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
-                            <option value="<?php echo $resultado['id_materia'] ?>"><?php echo $resultado['nombre'] ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div class="form-group row" align="Left">
-                      <label class="col-sm-4 col-form-label">Grupo:</label>
-                      <div class="col-sm-8">
-                        <select name="grupo" class="form-control">
-                            <option value="0" disabled="">Seleccione:</option>
-                            <?php
-                            //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
-                            while ($resultado = mysqli_fetch_assoc($selecciongrupo)) {
-                            ?>
-                              <!--se traen los datos a mostrar en el select-->
-                              <option value="<?php echo $resultado['id_grupo'] ?>"><?php echo $resultado['nombre'] ?></option>
-                            <?php
-                            }
-                            ?>
-                        </select>
-                      </div>
-                    </div>
-
-                    <fieldset>
-                      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
-                    </fieldset>
-                    <br>
-                                </form>
+                              <label class="col-sm-4 col-form-label">Selecciona el día:</label>
+                              <div class="col-sm-8">
+                                <select class="form-select" name="dia" required>
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                  while ($resultado = mysqli_fetch_assoc($selecciondia)) {
+                                  ?>
+                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                    <option value="<?php echo $resultado['id_dia'] ?>"><?php echo $resultado['nombredia'] ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                </select>
+                              </div>
                             </div>
-                        </center>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Hora inicio: </label>
+                              <div class="col-sm-8">
+                                <input type="time" name="hora" class="form-control" min="07:00:00" max="22:00:00" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Hora fin: </label>
+                              <div class="col-sm-8">
+                                <input type="time" name="horafin" class="form-control" min="07:00:00" max="22:00:00" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Codigo de la clase: </label>
+                              <div class="col-sm-8">
+                                <input placeholder="..." class="form-control" type="text" name="codigo" id="inputText" required="">
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Docente:</label>
+                              <div class="col-sm-8">
+                                <select class="form-select" name="nombre_docente" required>
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                  while ($resultado = mysqli_fetch_assoc($selecciondocente)) {
+                                  ?>
+                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                    <option value="<?php echo $resultado['id_docente'] ?>"><?php echo $resultado['nombredocente']. " ". $resultado['apellidos']?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Aula:</label>
+                              <div class="col-sm-8">
+                                <select class="form-select" name="aula" required>
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                  while ($resultado = mysqli_fetch_assoc($seleccionaula)) {
+                                  ?>
+                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                    <option value="<?php echo $resultado['id_aula'] ?>"><?php echo $resultado['nombre'] ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Materia:</label>
+                              <div class="col-sm-8">
+                                <select class="form-select" name="materia" required>
+                                  <option value="0" disabled="">Seleccione:</option>
+                                  <?php
+                                  //ciclo while que nos sirve para traer cuales son los tipos de usuario (paciente, medico)
+                                  while ($resultado = mysqli_fetch_assoc($seleccionmateria)) {
+                                  ?>
+                                    <!-- se imprimen los datos en un select segun el respectivo id o nombre -->
+                                    <option value="<?php echo $resultado['id_materia'] ?>"><?php echo $resultado['nombre'] ?></option>
+                                  <?php
+                                  }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="form-group row" align="Left">
+                              <label class="col-sm-4 col-form-label">Grupo:</label>
+                              <div class="col-sm-8">
+                                <select name="grupo" class="form-select">
+                                    <option value="0" disabled="">Seleccione:</option>
+                                    <?php
+                                    //se hace el recorrido de la consulta establecida en la parte superior para mostrar los datos en el respectivo select
+                                    while ($resultado = mysqli_fetch_assoc($selecciongrupo)) {
+                                    ?>
+                                      <!--se traen los datos a mostrar en el select-->
+                                      <option value="<?php echo $resultado['id_grupo'] ?>"><?php echo $resultado['nombre'] ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                </select>
+                              </div>
+                            </div>
+
+                            <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Registrar</button>
+                          </form>
+                        </div>
+
                     </div>
-                    
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">

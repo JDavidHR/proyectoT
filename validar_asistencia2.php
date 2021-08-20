@@ -63,38 +63,38 @@
                     <!--tabla de clases asistidas-->
                     <div class="row">
                         <center>
-                        <div class="col-md-6 col-md-offset-3">
-                            <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
-                                <div  style="text-align: center">
-                                    <h3>Registro de Asistencia</h3>
-                                    <br>
+                            <div class="col-md-6 col-md-offset-3">
+                                <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
+                                    <div style="text-align: center">
+                                        <h3>Registro de Asistencia</h3>
+                                        <br>
                                         <div class="form-group row" align="right">
-                                          <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
-                                          <div class="col-sm-6">
-                                            <select class="form-select " id="idmateria" name="idmateria" required>
-                                              <option value="<?php echo $id_materia ?>"><?php echo $materia ?></option>
-                                            </select>
-                                          </div>
+                                            <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
+                                            <div class="col-sm-6">
+                                                <select class="form-select" id="idmateria" name="idmateria" required>
+                                                    <option value="<?php echo $id_materia ?>"><?php echo $materia ?></option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         <div class="form-group row" align="right">
-                                          <label class="col-sm-5 col-form-label">Codigo de la clase:</label>
-                                          <div class="col-sm-6">
-                                            <fieldset>
-                                              <input class="form-control " name="codigo_clase" placeholder="Escriba el codigo aqui" required>
-                                            </fieldset>
-                                          </div>
+                                            <label class="col-sm-5 col-form-label">Codigo de la clase:</label>
+                                            <div class="col-sm-6">
+                                                <fieldset>
+                                                    <input class="form-control " name="codigo_clase" placeholder="Escriba el codigo aqui" required>
+                                                </fieldset>
+                                            </div>
                                         </div>
 
                                         <div class="form-group row" align="right">
-                                          <label class="col-sm-5 col-form-label">Fecha de registro:</label>
-                                          <div class="col-sm-6">
-                                              <input type="date" name="fechaclase" class="form-control" required>
-                                          </div>
+                                            <label class="col-sm-5 col-form-label">Fecha de registro:</label>
+                                            <div class="col-sm-6">
+                                                <input type="date" name="fechaclase" class="form-control" required>
+                                            </div>
                                         </div>
 
                                         <br>
-                                          <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Validar</button>
+                                        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-3">Validar</button>
                                     </div>
                                 </form>
                             </div>

@@ -10,6 +10,8 @@
   <title>Sistema acad&eacute;mico</title>
   <link href="css/style2.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
+  <link href="css/registro.css" rel="stylesheet" media="all">
+  <link href="css/style.min.css" rel="stylesheet">
   <script src="js/all.min.js" rel="stylesheet"></script>
 </head>
 
@@ -79,134 +81,120 @@
       <main>
         <div class="container-fluid px-4">
           <div class="row">
-            <center>
-              <div class="col-md-6 col-md-offset-3">
-                <table id="" class="table table-striped table-bordered" style="width:100%">
-                  <thead>
-                    <tr>
-                      <th scope="col">Documento</th>
-                      <th scope="col">Nombre</th>
-                      <th scope="col">Tipo de usuario</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td><?php echo $documento ?></td>
-                      <td><?php echo $nombres . " " . $apellidos ?></td>
-                      <td><?php echo $tipo_usuario ?></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </center>
+            <div class="container col-md-7 col-md-offset-3" style="text-align: center">
+              <form id="contact" action="Controlador/newcode.php" method="post">
+                <h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>
+                <br>
+
+                <div class="form-group row" align="right">
+                  <label class="col-sm-5 col-form-label">Id de la clase:</label>
+                  <div class="col-sm-5">
+                    <select class="form-select" id="idclaseimprimir" name="idclaseimprimir" required>
+                      <option value="<?php echo $idclase ?>"><?php echo $idclase ?></option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row" align="right">
+                  <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
+                  <div class="col-sm-5">
+                    <select class="form-select" id="newcodeidmateria" name="newcodeidmateria" required>
+                      <option value="<?php echo $idMateria ?>"><?php echo $nombremateria ?></option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row" align="right">
+                  <label class="col-sm-5 col-form-label">Nuevo codigo (Opcional):</label>
+                  <div class="col-sm-5">
+                    <fieldset>
+                      <input class="form-control " name="newcode" placeholder="Nuevo Codigo">
+                    </fieldset>
+                  </div>
+                </div>
+                <br>
+
+                <fieldset>
+                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5">Generar nuevo</button>
+                </fieldset>
+              </form>
+            </div>
           </div>
-          <br><br>
 
           <div class="row">
             <center>
-              <div class="col-md-4 col-md-offset-3">
-                <form id="contact" action="Controlador/docente/newcode.php" method="post">
-                  <h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>
+                  <h3>Listado de estudiantes</h3>
                   <br>
-
-                  <div class="form-group row" align="right">
-                    <label class="col-sm-5 col-form-label">Id de la clase:</label>
-                    <div class="col-sm-5">
-                      <select class="form-control " id="idclaseimprimir" name="idclaseimprimir" required>
-                        <option value="<?php echo $idclase ?>"><?php echo $idclase ?></option>
-                      </select>
+                <!--tabla de clases asistidas-->
+                <div class="card mb-4 col-md-7 col-md-offset-3">
+                    <div class="card-body">
+                        <table id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>N&uacute;mero de documento</th>
+                                    <th>Nombre de los estudiantes</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>N&uacute;mero de documento</th>
+                                    <th>Nombre de los estudiantes</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr>
+                                    <?php
+                                    while ($valores3 = mysqli_fetch_assoc($listaE)) {
+                                    ?>
+                                    <td><?php echo $valores3['documento'] ?></td>
+                                    <td><?php echo $valores3['nombres'] . " " . $valores3['apellidos'] ?></td>
+                                </tr>
+                                    <?php
+                                        }
+                                    ?>
+                            </tbody>
+                        </table>
                     </div>
-                  </div>
-
-                  <div class="form-group row" align="right">
-                    <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
-                    <div class="col-sm-5">
-                      <select class="form-control " id="newcodeidmateria" name="newcodeidmateria" required>
-                        <option value="<?php echo $idMateria ?>"><?php echo $nombremateria ?></option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div class="form-group row" align="right">
-                    <label class="col-sm-5 col-form-label">Nuevo codigo (Opcional):</label>
-                    <div class="col-sm-5">
-                      <fieldset>
-                        <input class="form-control " name="newcode" placeholder="Nuevo Codigo">
-                      </fieldset>
-                    </div>
-                  </div>
-                  <br>
-
-                  <fieldset>
-                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5" style="background-color: green;color:white;border:black;">Generar nuevo</button>
-                  </fieldset>
-                </form>
-              </div>
+                </div>
             </center>
-          </div>
-          <br><br>
+        </div>
 
-          <center>
-            <h3>Listado de estudiantes</h3>
-            <div class="col-md-5 col-md-offset-3">
-              <table id="" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                  <tr>
-                    <th scope="col">Numero de documentos</th>
-                    <th scope="col">Nombres de los estudiantes</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <?php
-                    while ($valores3 = mysqli_fetch_assoc($listaE)) {
-                    ?>
-                      <td><?php echo $valores3['documento'] ?></td>
-                      <td><?php echo $valores3['nombres'] . " " . $valores3['apellidos'] ?></td>
-                  </tr>
-                <?php
-                    }
-                ?>
-                </tbody>
-              </table>
-            </div>
-          </center>
-
-          <br><br>
-          <form id="contact" action="Controlador/docente/asistenciaDocente.php" method="post">
+          <div class="row">
             <div class="container col-md-7 col-md-offset-3" style="text-align: center">
-              <center>
-                <h3>Espacio para adjuntar links y/o comentarios a la clase</h3>
-              </center>
+              <form id="contact" action="Controlador/asistenciaDocente.php" method="post">
+                <center>
+                  <h3>Espacio para adjuntar links y/o comentarios a la clase</h3>
+                </center>
 
-              <div class="form-group row">
+                <div class="form-group row">
+                  <fieldset>
+                    <textarea name="comentarios" rows="5" cols="70" required="" placeholder="Escribe aquí una descripción..."></textarea>
+                  </fieldset>
+                </div>
+
+                <div class="form-group row" align="right">
+                  <label class="col-sm-5 col-form-label">Id de la clase:</label>
+                  <div class="col-sm-5">
+                    <select class="form-select" id="idclaseimprimir" name="idclaseimprimir" required>
+                      <option value="<?php echo $idclase ?>"><?php echo $idclase ?></option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group row" align="right">
+                  <label class="col-sm-5 col-form-label">Fecha de registro:</label>
+                  <div class="col-sm-5">
+                      <input type="date" name="fechaclase" class="form-control" required="">
+                  </div>
+                </div>
+
+                <br>
                 <fieldset>
-                  <textarea name="comentarios" rows="5" cols="70" required="" placeholder="Escribe aquí una descripción..."></textarea>
+                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5">Guardar y registrar clase</button>
                 </fieldset>
-              </div>
-
-              <div class="form-group row" align="right">
-                <label class="col-sm-5 col-form-label">Id de la clase:</label>
-                <div class="col-sm-5">
-                  <select class="form-control " id="idclaseimprimir" name="idclaseimprimir" required>
-                    <option value="<?php echo $idclase ?>"><?php echo $idclase ?></option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-group row" align="right">
-                <label class="col-sm-5 col-form-label">Fecha de registro:</label>
-                <div class="col-sm-5">
-                  <input type="date" name="fechaclase" class="form-control" required="">
-                </div>
-              </div>
-
-              <br>
-              <fieldset>
-                <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5" style="background-color: green;color:white;border:black;">Guardar y registrar clase</button>
-              </fieldset>
+              </form>
             </div>
-          </form>
+          </div>
         </div>
       </main>
       <br><br>
@@ -229,8 +217,11 @@
       header("refresh:0;url=login.php");
     }
 ?>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/scripts.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/scripts.js"></script>
+
+  <script src="js/simple-datatables.js"></script>
+  <script src="js/datatables-simple-demo.js"></script>
 </body>
 
 </html>

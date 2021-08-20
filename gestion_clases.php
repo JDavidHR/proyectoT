@@ -46,9 +46,8 @@
                 <div class="container-fluid px-4">
                 <br>
                 <center>
-                    <b>
-                        <p class="mb-4">Clases</p>
-                    </b>
+                    <h3>Gestionar clases (Activas)</h3>
+                    <br>
                 </center>
                     <div class="row">
                         <center>
@@ -102,9 +101,8 @@
                         <br><br>
 
                         <center>
-                            <b>
-                                <p class="mb-4">Clases desactivados/eliminados</p>
-                            </b>
+                            <h3>Gestionar clases (Inactivas/Eliminadas)</h3>
+                            <br>
                         </center>
                         <div class="row">
                             <center>

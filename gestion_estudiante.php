@@ -46,9 +46,9 @@
                 <div class="container-fluid px-4">
                 <br>
                 <center>
-                    <b>
-                        <p class="mb-4">Estudiantes</p>
-                    </b>
+                    <h3>
+                        <p class="mb-4">Gestionar estudiantes (Activos)</p>
+                    </h3>
                 </center>
                     <div class="row">
                         <center>
@@ -101,9 +101,9 @@
                         <br><br>
 
                         <center>
-                            <b>
-                                <p class="mb-4">Estudiantes desactivados/eliminados</p>
-                            </b>
+                            <h3>
+                                <p class="mb-4">Gestionar estudiantes (Inactivos/eliminados)</p>
+                            </h3>
                         </center>
                         <div class="row">
                             <center>

@@ -45,9 +45,8 @@
                 <div class="container-fluid px-4">
                 <br>
                 <center>
-                    <b>
-                        <p class="mb-4">Materias</p>
-                    </b>
+                    <h3>Gestionar materias (Activas)</h3>
+                    <br>
                 </center>
                     <div class="row">
                         <center>
@@ -91,9 +90,8 @@
                         <br><br>
 
                         <center>
-                            <b>
-                                <p class="mb-4">Materias desactivados/eliminados</p>
-                            </b>
+                            <h3>Gestionar materias (Inactivas/Eliminadas)</h3>
+                            <br>
                         </center>
                         <div class="row">
                             <center>
