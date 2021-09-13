@@ -31,11 +31,11 @@ if(isset($_POST['submit']) && isset($_POST['codigo_clase']) && isset($_POST['idm
             //mensaje de salida (alert) cuanod la consulta es exitosa con su respectiva redireccion de pagina
             echo"<script type=\"text/javascript\">alert('Asistencia registrada'); window.location='../../index.php';</script>";
         }else{
-            echo"<script type=\"text/javascript\">alert('Se produjo un error - La clase no esta activa o los datos son erroneos'); window.location='../../validar_asistencia.php';</script>";
+            echo"<script type=\"text/javascript\">alert('Se produjo un error - La clase no esta activa o los datos son erroneos'); window.location='../../paginas/estudiante/validar_asistencia.php';</script>";
         }
     }else{
         //mensaje de salida en caso de que la consulta falle
-        echo"<script type=\"text/javascript\">alert('La clase esta inactiva, por favor revise los datos'); window.location='../../validar_asistencia.php';</script>";
+        echo"<script type=\"text/javascript\">alert('La clase esta inactiva, por favor revise los datos'); window.location='../../paginas/estudiante/validar_asistencia.php';</script>";
     }
     
     $mysql->desconectar();   

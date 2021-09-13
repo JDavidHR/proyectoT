@@ -51,7 +51,7 @@
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
                         <div class="container col-md-6 col-md-offset-3" style="text-align: center">
-                          <form id="contact" action="Controlador/administrador/insertar_usuario.php" method="post">
+                          <form id="contact" action="Controlador/insertar_usuario.php" method="post">
                             <h3>Registrar Estudiante</h3>
                             <label>Recuerda llenar todos los campos</label>
                             <br><br>

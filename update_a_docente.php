@@ -136,7 +136,7 @@
 
                         <div class="row">
                             <div class="container col-md-7 col-md-offset-3" style="text-align: center">
-                                <form id="contact" action="Controlador/docente/updateasistenciaDocente.php" method="post">
+                                <form id="contact" action="Controlador/updateasistenciaDocente.php" method="post">
                                 <center>
                                   <h3>Links y/o comentarios a la clase adjuntados</h3>
                                 </center>
