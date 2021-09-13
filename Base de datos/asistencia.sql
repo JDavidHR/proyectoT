@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2021 a las 20:16:51
+-- Tiempo de generación: 13-09-2021 a las 21:39:17
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 7.3.28
 
@@ -110,8 +110,8 @@ CREATE TABLE `a_estudiante` (
 INSERT INTO `a_estudiante` (`ida_estudiante`, `fecha`, `asistio`, `estudiante_id_estudiante`, `clase_id_clase`) VALUES
 (1, '2021-07-13', 'Si', 1, 6),
 (2, '2021-07-13', 'No', 2, 6),
-(18, '2021-09-13', 'No', 1, 6),
-(19, '2021-09-13', 'No', 2, 6);
+(3, '2021-09-13', 'No', 1, 6),
+(4, '2021-09-13', 'No', 2, 6);
 
 -- --------------------------------------------------------
 
