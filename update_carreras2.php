@@ -56,7 +56,7 @@
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
                         <div class="container col-md-6 col-md-offset-3" style="text-align: center">  
-                            <form id="contact" action="Controlador/update_carreras.php?id=<?php echo $id_carrera; ?>" method="post">
+                            <form id="contact" action="Controlador/update_carrera.php?id=<?php echo $id_carrera; ?>" method="post">
                                 <h3>Modificar Carreras</h3>
                                 <label>Recuerda rellenar el campo</label>
                                 <br>

@@ -49,7 +49,7 @@
                     <div class="row">
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
                         <div class="container col-md-6 col-md-offset-3" style="text-align: center">
-                            <form id="contact" action="Controlador/insertar_carreras.php" method="post">
+                            <form id="contact" action="Controlador/insertar_carrera.php" method="post">
                                 <h3>Registrar Carrera</h3>
                                 <label>Recuerda llenar el campo</label>
                                 <br>

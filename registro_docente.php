@@ -81,6 +81,13 @@
                                   </div>
                                 </div>
 
+                                <div class="form-group row" align="Left">
+                                  <label class="col-sm-3 col-form-label">Correo</label>
+                                  <div class="col-sm-9">
+                                    <input placeholder="..." class="form-control" type="text" name="correo" id="inputText" required="">
+                                  </div>
+                                </div>
+
                                 <fieldset>
                                     <label>Tipo de usuario: </label>
                                     <center>

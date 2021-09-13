@@ -54,7 +54,7 @@
                         <!--Informacion de la clase seleccionada en el formulario anterior-->
                         <div class="col-6">
                             <div class="container col-md-10" style="text-align: center">
-                                <form id="contact" action="Controlador/insertar_grupos.php" method="post">
+                                <form id="contact" action="Controlador/insertar_grupo.php" method="post">
                                     <h3>Registrar Grupo</h3>
                                     <h4>Recuerda llenar todos los campos</h4>
                                     <div class="form-group row" align="Left">
