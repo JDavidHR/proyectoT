@@ -161,7 +161,7 @@
 
           <div class="row">
             <div class="container col-md-7 col-md-offset-3" style="text-align: center">
-              <form id="contact" action="Controlador/asistenciaDocente.php" method="post">
+              <form id="contact" action="Controlador/docente/asistenciaDocente.php" method="post">
                 <center>
                   <h3>Espacio para adjuntar links y/o comentarios a la clase</h3>
                 </center>
