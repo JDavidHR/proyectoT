@@ -62,7 +62,7 @@ class Email {
 			//enviamos el email con el archivo adjunto
 			$this->sender->send();
 			//url para redireccionar
-			$this->url = '../index_docente.php';
+			$this->url = '../index.php';
 			//redireccionamos a la misma url conforme se ha enviado correctamente con la variable si
 			header('Location:'.$this->url.'?s=si');
 		}
