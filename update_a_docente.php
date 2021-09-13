@@ -40,7 +40,7 @@
     $tipo_usuario = $valores1['nombre'];
   }
 
-  $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre as nombremateria, asistencia.grupo.id_grupo, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.clase.codigo, asistencia.links.links, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo JOIN asistencia.links ON asistencia.a_docente.clase_id_clase = asistencia.links.clase_id_clase WHERE asistencia.a_docente.estado = 'Activa' AND asistencia.a_docente.estado2 = 1 AND asistencia.a_docente.ida_docente = ".$clase." GROUP BY asistencia.materia.nombre");
+  $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre as nombremateria, asistencia.grupo.id_grupo, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.clase.codigo, asistencia.links.links, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo JOIN asistencia.links ON asistencia.a_docente.fecha = asistencia.links.fecha WHERE asistencia.a_docente.estado = 'Activa' AND asistencia.a_docente.estado2 = 1 AND asistencia.a_docente.ida_docente = ".$clase." GROUP BY asistencia.materia.nombre");
 
   //se inicia el recorrido para mostrar los datos de la BD
 
@@ -56,8 +56,11 @@
     $id_clase = $valores1['clase_id_clase'];
   }
 
-  $listaEA = $mysql->efectuarConsulta("SELECT asistencia.clase.id_clase, asistencia.grupo.id_grupo, asistencia.grupo.nombre, asistencia.clase.Docente_id_docente, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.estudiante.documento, asistencia.a_estudiante.asistio, asistencia.clase.Grupo_id_grupo from grupo JOIN clase ON asistencia.grupo.id_grupo = asistencia.clase.Grupo_id_grupo JOIN estudiante ON asistencia.grupo.Estudiante_id_estudiante = asistencia.estudiante.id_estudiante JOIN asistencia.a_estudiante ON asistencia.a_estudiante.estudiante_id_estudiante = asistencia.estudiante.id_estudiante WHERE asistencia.clase.id_clase = ". $id_clase ." AND asistencia.clase.Docente_id_docente = ". $id_docente ." GROUP BY asistencia.estudiante.documento");
+  /*$listaEA = $mysql->efectuarConsulta("SELECT asistencia.clase.id_clase, asistencia.grupo.id_grupo, asistencia.grupo.nombre, asistencia.clase.Docente_id_docente, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.estudiante.documento, asistencia.a_estudiante.asistio, asistencia.clase.Grupo_id_grupo from grupo JOIN clase ON asistencia.grupo.id_grupo = asistencia.clase.Grupo_id_grupo JOIN estudiante ON asistencia.grupo.Estudiante_id_estudiante = asistencia.estudiante.id_estudiante JOIN asistencia.a_estudiante ON asistencia.a_estudiante.estudiante_id_estudiante = asistencia.estudiante.id_estudiante WHERE asistencia.clase.id_clase = ". $id_clase ." AND asistencia.clase.Docente_id_docente = ". $id_docente ." GROUP BY asistencia.estudiante.documento");*/
+
+  $listaEAE = $mysql->efectuarConsulta("SELECT asistencia.estudiante.documento, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.a_estudiante.asistio, asistencia.a_estudiante.fecha from asistencia.estudiante JOIN asistencia.a_estudiante ON asistencia.estudiante.id_estudiante = asistencia.a_estudiante.estudiante_id_estudiante WHERE asistencia.a_estudiante.fecha = '". $fecha ."'");
         }
+
         $mysql->desconectar();
         //Si el usuario es un estudiante
         if($_SESSION['tipousuario'] == 2){
@@ -133,7 +136,7 @@
                                             <tbody>
                                                 <tr>
                                                     <?php
-                                                    while ($valores3 = mysqli_fetch_assoc($listaEA)) {
+                                                    while ($valores3 = mysqli_fetch_assoc($listaEAE)) {
                                                     ?>
                                                     <td><?php echo $valores3['documento'] ?></td>
                                                     <td><?php echo $valores3['nombres']." ".$valores3['apellidos'] ?></td>
