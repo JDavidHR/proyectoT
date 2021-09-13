@@ -71,7 +71,7 @@
                                             <td>
                                                 <div class="text-center">
                                                 <a class="btn" style="background-color: #2EC82E;color: white" href='update_aula2.php?id_aula=<?php echo $id_aula; ?>' role="button"><i class="fas fa-edit"></i></a>
-                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/administrador/delete_aula.php?id_aula=<?php echo $id_aula; ?>' role="button"><i class="fas fa-minus-square"></i></a>
+                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_aula.php?id_aula=<?php echo $id_aula; ?>' role="button"><i class="fas fa-minus-square"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -115,7 +115,7 @@
                                             <td><?php echo $valores1['nombre'] ?></td>
                                             <td>
                                                 <div class="text-center">
-                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/administrador/activar_aula.php?id_aula=<?php echo $id_aula; ?>' role="button"><i class="fas fa-check"></i></a>
+                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/activar_aula.php?id_aula=<?php echo $id_aula; ?>' role="button"><i class="fas fa-check"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

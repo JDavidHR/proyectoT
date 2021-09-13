@@ -64,7 +64,7 @@
                     <div class="row">
                         <center>
                             <div class="col-md-6 col-md-offset-3">
-                                <form id="contact" action="Controlador/estudiante/validar_asistencia.php" method="post">
+                                <form id="contact" action="Controlador/validar_asistencia.php" method="post">
                                     <div style="text-align: center">
                                         <h3>Registro de Asistencia</h3>
                                         <br>

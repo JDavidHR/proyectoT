@@ -41,9 +41,9 @@
                 $tipo_usuario = $valores1['nombre'];
             }
 
-            $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Activa' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.materia.nombre");
+            $MostrarDatos = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Activa' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.a_docente.fecha");
 
-            $MostrarDatos2 = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Inactiva' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.materia.nombre");
+            $MostrarDatos2 = $mysql->efectuarConsulta("SELECT asistencia.a_docente.ida_docente, asistencia.a_docente.clase_id_clase, asistencia.clase.Materia_id_materia, asistencia.materia.nombre, asistencia.grupo.nombre as nombregrupo, asistencia.a_docente.fecha, asistencia.a_docente.estado FROM a_docente JOIN asistencia.clase ON asistencia.a_docente.clase_id_clase = asistencia.clase.id_clase JOIN asistencia.materia ON asistencia.clase.Materia_id_materia = asistencia.materia.id_materia JOIN asistencia.grupo ON asistencia.clase.Grupo_id_grupo = asistencia.grupo.id_grupo WHERE asistencia.a_docente.estado = 'Inactiva' AND asistencia.a_docente.estado2 = 1 GROUP BY asistencia.a_docente.fecha");
         }
         $mysql->desconectar();
         //Si el usuario es un estudiante
@@ -119,8 +119,8 @@
                                                     <td>
                                                         <div class="text-center">
                                                             <a class="btn" style="background-color: #2EC82E;color: white" href='update_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
-                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
-                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/desactivar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye-slash"></i></a>
+                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/desactivar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye-slash"></i></a>
                                                         </div>
                                                     </td>
                                             </tr>
@@ -171,8 +171,8 @@
                                                     <td><?php echo $valores1['estado'] ?></td>
                                                     <td>
                                                         <div class="text-center">
-                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/docente/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
-                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/docente/activar_clase.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
+                                                            <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_a_docente.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-trash"></i></a>
+                                                            <a class="btn" style="background-color: #2962FF;color: white" href='Controlador/activar_clase2.php?ida_docente=<?php echo $ida_docente; ?>' role="button"><i class="fas fa-eye"></i></a>
                                                         </div>
                                                     </td>
                                             </tr>

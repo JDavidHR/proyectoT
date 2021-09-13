@@ -73,7 +73,7 @@
                                             while ($valores1 = mysqli_fetch_assoc($MostrarDatos)) {
                                             $id_clase = $valores1 ['id_clase'];
                                             ?>
-                                            <th scope="row"><?php echo $valores1['nombredia'] ?></th>
+                                            <td><?php echo $valores1['nombredia'] ?></td>
                                             <td><?php echo $valores1['hora'] ?></td>
                                             <td><?php echo $valores1['horafin'] ?></td>
                                             <td><?php echo $valores1['codigo'] ?></td>
@@ -84,7 +84,7 @@
                                             <td>
                                                 <div class="text-center">
                                                 <a class="btn" style="background-color: #2EC82E;color: white" href='update_clase2.php?id_clase=<?php echo $id_clase; ?>' role="button"><i class="fas fa-edit"></i></a>
-                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/administrador/delete_clase.php?id_clase=<?php echo $id_clase; ?>' role="button"><i class="fas fa-minus-square"></i></a>
+                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_clase.php?id_clase=<?php echo $id_clase; ?>' role="button"><i class="fas fa-minus-square"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -128,7 +128,7 @@
                                             while ($valores1 = mysqli_fetch_assoc($MostrarDatos2)) {
                                             $id_clase = $valores1 ['id_clase'];
                                             ?>
-                                            <th scope="row"><?php echo $valores1['nombredia'] ?></th>
+                                            <td><?php echo $valores1['nombredia'] ?></td>
                                             <td><?php echo $valores1['hora'] ?></td>
                                             <td><?php echo $valores1['horafin'] ?></td>
                                             <td><?php echo $valores1['codigo'] ?></td>
@@ -138,7 +138,7 @@
                                             <td><?php echo $valores1['grupo'] ?></td>
                                             <td>
                                                 <div class="text-center">
-                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/administrador/activar_clase.php?id_clase=<?php echo $id_clase; ?>' role="button"><i class="fas fa-check"></i></a>
+                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/activar_clase.php?id_clase=<?php echo $id_clase; ?>' role="button"><i class="fas fa-check"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

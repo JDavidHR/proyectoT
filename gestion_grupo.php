@@ -74,7 +74,7 @@
                                             <td>
                                                 <div class="text-center">
                                                 <a class="btn" style="background-color: #2EC82E;color: white" href='update_grupos2.php?id_grupo=<?php echo $id_grupo; ?>' role="button"><i class="fas fa-edit"></i></a>
-                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/administrador/delete_grupos.php?id_grupo=<?php echo $id_grupo; ?>' role="button"><i class="fas fa-minus-square"></i></a>
+                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_grupos.php?id_grupo=<?php echo $id_grupo; ?>' role="button"><i class="fas fa-minus-square"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -120,7 +120,7 @@
                                             <td><?php echo $valores1['nombres']." ".$valores1['apellidos'] ?></td>
                                             <td>
                                                 <div class="text-center">
-                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/administrador/activar_grupos.php?id_grupo=<?php echo $id_grupo; ?>' role="button"><i class="fas fa-check"></i></a>
+                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/activar_grupos.php?id_grupo=<?php echo $id_grupo; ?>' role="button"><i class="fas fa-check"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

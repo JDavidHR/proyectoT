@@ -77,7 +77,7 @@
                                             <td>
                                                 <div class="text-center">
                                                 <a class="btn" style="background-color: #2EC82E;color: white" href='update_docente2.php?id_docente=<?php echo $id_docente; ?>' role="button"><i class="fas fa-user-edit"></i></a>
-                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/administrador/delete_docente.php?id_docente=<?php echo $id_docente; ?>' role="button"><i class="fas fa-user-minus"></i></a>
+                                                <a class="btn" style="background-color: #FF5454;color: white" href='Controlador/delete_docente.php?id_docente=<?php echo $id_docente; ?>' role="button"><i class="fas fa-user-minus"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -125,7 +125,7 @@
                                             <td><?php echo $valores1['correo'] ?></td>
                                             <td>
                                                 <div class="text-center">
-                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/administrador/activar_docente.php?id_docente=<?php echo $id_docente; ?>' role="button"><i class="fas fa-user-check"></i></a>
+                                                <a class="btn" style="background-color: #2EC82E;color: white" href='Controlador/activar_docente.php?id_docente=<?php echo $id_docente; ?>' role="button"><i class="fas fa-user-check"></i></a>
                                                 </div>
                                             </td>
                                         </tr>

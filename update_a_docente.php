@@ -56,7 +56,7 @@
     $id_clase = $valores1['clase_id_clase'];
   }
 
-  $listaEA = $mysql->efectuarConsulta("SELECT asistencia.clase.id_clase, asistencia.grupo.id_grupo, asistencia.grupo.nombre, asistencia.clase.Docente_id_docente, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.estudiante.documento, asistencia.a_estudiante.asistio, asistencia.clase.Grupo_id_grupo from grupo JOIN clase ON asistencia.grupo.id_grupo = asistencia.clase.Grupo_id_grupo JOIN estudiante ON asistencia.grupo.Estudiante_id_estudiante = asistencia.estudiante.id_estudiante JOIN asistencia.a_estudiante ON asistencia.a_estudiante.estudiante_id_estudiante = asistencia.estudiante.id_estudiante WHERE asistencia.clase.id_clase = ". $id_clase ." AND asistencia.clase.Docente_id_docente = ". $id_docente ."");
+  $listaEA = $mysql->efectuarConsulta("SELECT asistencia.clase.id_clase, asistencia.grupo.id_grupo, asistencia.grupo.nombre, asistencia.clase.Docente_id_docente, asistencia.estudiante.nombres, asistencia.estudiante.apellidos, asistencia.estudiante.documento, asistencia.a_estudiante.asistio, asistencia.clase.Grupo_id_grupo from grupo JOIN clase ON asistencia.grupo.id_grupo = asistencia.clase.Grupo_id_grupo JOIN estudiante ON asistencia.grupo.Estudiante_id_estudiante = asistencia.estudiante.id_estudiante JOIN asistencia.a_estudiante ON asistencia.a_estudiante.estudiante_id_estudiante = asistencia.estudiante.id_estudiante WHERE asistencia.clase.id_clase = ". $id_clase ." AND asistencia.clase.Docente_id_docente = ". $id_docente ." GROUP BY asistencia.estudiante.documento");
         }
         $mysql->desconectar();
         //Si el usuario es un estudiante
@@ -68,10 +68,19 @@
                     <div class="container-fluid px-4">
                         <div class="row">
                             <div class="container col-md-7 col-md-offset-3" style="text-align: center">
-                              <form id="contact" action="Controlador/newcode.php" method="post">
-                                <!--<h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>-->
-                                <h3>Datos de la clase</h3>
+                              <form id="contact" action="Controlador/newcode2.php" method="post">
+                                <h3><?php echo "Clase: " . $nombremateria . "<br>Codigo generado: " . $codigo ?></h3>
                                 <br>
+
+                                <div class="form-group row" align="right">
+                                  <label class="col-sm-5 col-form-label">Id de la clase:</label>
+                                  <div class="col-sm-5">
+                                    <select class="form-select" id="idclaseimprimir" name="idclaseimprimir" required>
+                                      <option value="<?php echo $id_clase ?>"><?php echo $id_clase ?></option>
+                                    </select>
+                                  </div>
+                                </div>
+
                                 <div class="form-group row" align="right">
                                   <label class="col-sm-5 col-form-label">Clase seleccionada:</label>
                                   <div class="col-sm-5">
@@ -82,16 +91,22 @@
                                 </div>
 
                                 <div class="form-group row" align="right">
-                                  <label class="col-sm-5 col-form-label">Codigo:</label>
+                                  <label class="col-sm-5 col-form-label">Nuevo codigo (Opcional):</label>
                                   <div class="col-sm-5">
                                     <fieldset>
-                                      <input placeholder="Codigo" disabled="" class="form-control" type="text" name="codigo" id="inputText" value="<?php echo $codigo ?>">
+                                      <input class="form-control " name="newcode" placeholder="Nuevo Codigo">
                                     </fieldset>
                                   </div>
                                 </div>
+                                <br>
+
+                                <fieldset>
+                                  <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" class="col-5">Generar nuevo</button>
+                                </fieldset>
                               </form>
                             </div>
-                        </div>
+                          </div>
+
 
                         <div class="row">
                             <center>
